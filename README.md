@@ -15,6 +15,18 @@ A fim de alcançar tais objetivos, torna-se necessário identificar os objetivos
 * Gerentes de Projeto
 * Estudantes
 
+## Custo
+> Apenas 02 kg de alimentos POR AULA
+
+## Local
+Rua Rio Tinto, 152, Santa Mônica, Feira de Santana - Ba. CEP 44050-250.
+
+## Data e Horário
+- Início: 22/08/2015
+- Término: 10/10/2015 (previsto)
+- Horário: 13h00 às 17h00 (4h/sábado)
+- Carga Horária: 30h
+
 ## Conteúdo
 Preparando o ambiente
 * Instalando PHP 5.4 / 5.5
@@ -107,5 +119,3 @@ PHPUnit
 * Rodando testes
 * Configurando bootstrap
 * Cobertura de código
-
-
