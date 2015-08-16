@@ -8,7 +8,7 @@ A fim de alcançar tais objetivos, torna-se necessário identificar os objetivos
 * Oferecer condições ao participante de aperfeiçoar suas habilidades por meio da criação de aplicações simplificadas e práticas.
 * Fortalecer o uso das boas práticas durante a programação.
 
-## Público Alvo 
+## Público Alvo
 * Desenvolvedores
 * Analistas de Sistemas
 * Engenheiros de Software
@@ -36,7 +36,7 @@ Introdução ao PHP
 Preparando o ambiente
 * Instalando PHP 5.5 / 5.6
 * Utilizando o Servidor Embutido
-* SublimeText 
+* SublimeText
 
 Paradigmas de Desenvolvimento
 * Programação Orientada a Objetos
@@ -102,7 +102,7 @@ Caching
 * O que é caching?
 * Vantagens
 * Bytecode cache
-* Object cache 
+* Object cache
 
 Segurança
 * Data Filtering
@@ -125,10 +125,12 @@ PHPUnit
 * Configurando bootstrap
 * Cobertura de código
 
+# Introdução ao PHP
 ## O que é PHP?
-O PHP (um acrônimo recursivo para PHP: Hypertext Preprocessor) é uma linguagem de script open source de uso geral, muito utilizada, e especialmente adequada para o desenvolvimento web e que pode ser embutida dentro do HTML.
+O PHP (um acrônimo recursivo para PHP: Hypertext Preprocessor) é uma linguagem de script [open source](http://git.php.net/) de uso geral, muito utilizada, e especialmente adequada para o desenvolvimento web e que pode ser embutida dentro do HTML.
 
 Por exemplo:
+
 ```php
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
     "http://www.w3.org/TR/html4/loose.dtd">
@@ -146,7 +148,59 @@ Por exemplo:
 </html>
 ```
 
-O código PHP é delimitado pelas [instruções de processamento (tags) de início e fim ```<?php``` e ```?>```](http://php.net/manual/pt_BR/language.basic-syntax.phpmode.php) que permitem que você pule para dentro e para forma do "modo PHP".
+O código PHP é delimitado pelas [instruções de processamento (tags) de início e fim ```<?php``` e ```?>```](http://php.net/manual/en/language.basic-syntax.phpmode.php) que permitem que você pule para dentro e para forma do "modo PHP".
+
+## História
+Criado em 1994 por [Rasmus Lerdof](https://pt.wikipedia.org/wiki/Rasmus_Lerdorf), a primeira encarnação do PHP foi um simples conjunto de binários Common Gateway Interface (CGI) escrito em linguagem de programação C.
+
+Originalmente usado para acompanhamento de visitas para seu currículo online, ele nomeou o conjunto de scripts de "Personal Home Page Tools" mais frequentemente referenciado como "PHP Tools." Ao longo do tempo, mais funcionalidades foram desejadas, e Rasmus reescreveu o PHP Tools, produzindo uma maior e rica implementação.
+
+Em Junho de 1995, Rasmus [liberou](https://groups.google.com/forum/#!msg/comp.infosystems.www.authoring.cgi/PyJ25gZ6z7A/M9FkTUVDfcwJ) o código fonte do PHP Tools para o público, o que permitiu que desenvolvedores usassem da forma como desejassem. Isso permitiu - e encorajou - usuários a fornecerem correções para bugs no código, e em geral, aperfeiçoá-lo.
+
+Leia mais:
+* [História do PHP (PT BR)](http://php.net/manual/pt_BR/history.php.php)
+* [PHP Museum](http://museum.php.net/)
+* [Video: PHP Development History 2014](https://www.youtube.com/watch?v=ULjUgdxNaHg)
+
+# PHP Básico
+## Escapando o HTML
+Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
+
+```php
+<p>Isto vai ser ignorado.</p>
+<?php echo 'Enquanto isto vai ser interpretado.'; ?>
+<p>Isto também vai ser ignorado.</p>
+```
+
+Existem diferentes maneiras de abrir e fechar um bloco de instruções PHP.
+
+```php
+<?php
+    echo 'Isto é um teste';
+?>
+
+<?php echo 'Isto é um teste' ?>
+
+<?= 'Isto é um teste utilizando short echo tag' ?>
+
+<?php echo 'Nós omitimos a última tag de fechamento';
+```
+
+> OBS: Não é necessário colocar um ```;``` quando você abre e fecha um bloco de instruções na mesma linha.
+
+Você também pode escapar utilizada expressões condicionais avançadas:
+
+```php
+<?php if ($expression == true): ?>
+  This will show if the expression is true.
+<?php else: ?>
+  Otherwise this will show.
+<?php endif; ?>
+```
+
+Leia mais:
+* http://php.net/manual/en/language.basic-syntax.instruction-separation.php
+* http://php.net/manual/en/language.basic-syntax.phpmode.php
 
 ## Referências
-[php.net](php.net)
+[php.net - Site oficial do PHP](php.net)
