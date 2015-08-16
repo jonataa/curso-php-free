@@ -27,9 +27,14 @@ Rua Rio Tinto, 152, Santa Mônica, Feira de Santana - Ba. CEP 44050-250.
 - Horário: 13h00 às 17h00 (4h/sábado)
 - Carga Horária: 30h
 
-## Conteúdo
+## Conteúdo (WIP)
+Introdução ao PHP
+* O que é?
+* Como Surgiu?
+* Alguns projetos
+
 Preparando o ambiente
-* Instalando PHP 5.4 / 5.5
+* Instalando PHP 5.5 / 5.6
 * Utilizando o Servidor Embutido
 * SublimeText 
 
@@ -119,3 +124,29 @@ PHPUnit
 * Rodando testes
 * Configurando bootstrap
 * Cobertura de código
+
+## O que é PHP?
+O PHP (um acrônimo recursivo para PHP: Hypertext Preprocessor) é uma linguagem de script open source de uso geral, muito utilizada, e especialmente adequada para o desenvolvimento web e que pode ser embutida dentro do HTML.
+
+Por exemplo:
+```php
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>Exemplo</title>
+    </head>
+    <body>
+
+        <?php
+        echo "Olá, eu sou um script PHP!";
+        ?>
+
+    </body>
+</html>
+```
+
+O código PHP é delimitado pelas [instruções de processamento (tags) de início e fim ```<?php``` e ```?>```](http://php.net/manual/pt_BR/language.basic-syntax.phpmode.php) que permitem que você pule para dentro e para forma do "modo PHP".
+
+## Referências
+[php.net](php.net)
