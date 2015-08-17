@@ -191,7 +191,7 @@ Sempre utilize a última versão estável do PHP por causa do grande número de 
 ## Instalando no Windows
 Faça o download dos arquivos binários (.zip) [nessa página](http://windows.php.net/download/) e descompacte-os na pasta ```c:\php56``` do seu computador. Verifique se nessa pasta existe o arquivo ```c:\php56\php.exe```. Agora, vamos adicionar o PHP à variável de ambiente [PATH](http://www.windows-commandline.com/set-path-command-line/). Digite no [Prompt de Comando](https://pt.wikipedia.org/wiki/Prompt_de_comando) (ou CMD) o comando abaixo e pressione ```ENTER```:
 
-```
+```shell
 setx path "%path%;c:\php56"
 ```
 
@@ -199,24 +199,23 @@ Se você não tem muito domínio com a linha de comando, dê uma olhada [nesse t
 
 ## Instalando no Linux
 
-A melhor maneira de instalar o PHP numa distribuição Linux baseada em Unix é utilizando um [geranciador de pacote](https://en.wikipedia.org/wiki/List_of_software_package_management_systems#Linux_distributions). Isso vai depender da sua distribuição Linux na qual você está utilizando. No Ubuntu, uma das distribuições mais populares, você irá instalar através do gerenciador de pacote ```apt```. Apenas digite o comando abaixo e [verifique se foi instalado corretamente](#verificando-a-instalação).
+A melhor maneira de instalar o PHP numa distribuição Linux baseada em Unix é utilizando um [geranciador de pacotes](https://en.wikipedia.org/wiki/List_of_software_package_management_systems#Linux_distributions). Isso vai depender da sua distribuição Linux na qual você está utilizando. No Ubuntu, uma das distribuições mais populares, você irá instalar através do gerenciador de pacote ```apt```. Apenas digite o comando abaixo e [verifique se foi instalado corretamente](#verificando-a-instalação).
 
-```
+```shell
 $ sudo apt-get install php5-cli
 ```
-> Não incluir o sinal cifrão/dollar no comando.
+> Não incluir o sinal de cifrão/dollar no comando.
 
 
 ## Instalando no Mac OSX
 
-No sistema operacional Macintosh, o PHP já vem pré-instalado, na maioria das vezes na versão ```5.4```. Antes de instalar, [verifique se você já possui o PHP instalado](#verificando-a-instalação). Se não, a melhor maneira de instalar no Mac OSX é utilizando o gerenciador de pacotes chamado ```
-Homebrew``` (ou apenas ```Brew```).
+No sistema operacional Macintosh, o PHP já vem pré-instalado, na maioria das vezes na versão ```5.4```. Antes de instalar, [verifique se você já possui o PHP instalado](#verificando-a-instalação). Se não, a melhor maneira de instalar no Mac OSX é utilizando o gerenciador de pacotes chamado ```Homebrew``` (ou apenas ```Brew```).
 
 > [Site do Homebrew](http://brew.sh/)
 
 Um vez que o ```Homebrew``` foi instalado corretamente, basta digitar o comando a seguir:
 
-```
+```shell
 $ brew install php55
 ```
 
@@ -226,7 +225,7 @@ Agora, verifique se o PHP foi instalado corratamente no [tópico](#verificando-a
 
 Para saber se o PHP está instalado corretamente no seu sistema operacional, digite ```php -v``` no CMD (ou Shell, para usuários Linux) e verifique se você obtém uma resposta parecida com essa:
 
-```
+```shell
 $ php -v
 PHP 5.6.4 (cli) (built: Dec 24 2014 12:05:33)
 Copyright (c) 1997-2014 The PHP Group
@@ -235,14 +234,81 @@ Zend Engine v2.6.0, Copyright (c) 1998-2014 Zend Technologies
     with Xdebug v2.2.5, Copyright (c) 2002-2014, by Derick Rethans
 ```
 
-> Esse comando é utilizado para mostrar a versão PHP instalada no seu sistema operacional.
+> Não incluir o sinal cifrão/dollar no comando. Esse comando é utilizado para mostrar a versão PHP instalada no seu sistema operacional.
 
 Leia mais:
 * [O que significa thread safety quando estou fazendo o download do PHP?](http://php.net/manual/pt_BR/faq.obtaining.php#faq.obtaining.threadsafety)
 * [eBook - PHP Pandas - Installation](http://daylerees.com/php-pandas-installation/)
 * [PHP The Right Way - Getting Started](http://www.phptherightway.com/#getting_started)
 
+## Editores de Texto
+
+Durante o nosso curso, utilizaremos o [Atom.io](https://atom.io/) como editor de texto para criar nossos scripts PHP. Ele é um editor open source e foi desenvolvido pela galera do [Github](https://github.com/). Faça o download [aqui](https://atom.io/) e instale de acordo com o seu sistema operacional.
+
 # PHP Básico
+
+## Hello, World
+
+Uma vez que nosso [ambiente de desenvolvimento está preparado](#preparando-o-ambiente), iremos executar nosso primeiro script PHP. Existem diversas maneiras de executá-lo, uma delas é via Terminal (ou CMD, no caso do Windows), digite o comando abaixo:
+
+```shell
+$ php -r 'echo "Hello World";'
+```
+> php -r 'code' (Roda um código PHP sem as scripts tags <?php..?>)
+
+Outra maneira, é criando um arquivo ```helloworld.php``` com o seguinte conteúdo:
+
+```php
+<?php
+
+echo "Hello World";
+```
+Para executar esse script no Terminal, digite:
+
+```shell
+$ php -f helloworld.php
+```
+
+Também é possível executar scripts PHP diretamente do Atom.io, abra o arquivo ```helloworld.php``` no editor e pressione ```ctrl-shift-b```(ou ```cmd-i```, no OSX).
+
+Abrirá uma caixa com o output do script, dessa maneira:
+
+![Running Scripts in Atom.io](imgs/atom_run_script.png)
+
+## Servidor Web
+
+A maneira mais popular de executar os scripts PHP é junto com um servidor web, como [Apache](http://www.apache.org/), [Nginx](http://nginx.org/) ou [Lighttpd](http://www.lighttpd.net/). Mas, o que muitas pessoas não sabem é que o PHP, desde a sua versão ```5.4```, já traz um [servidor web embutido](http://php.net/manual/pt_BR/features.commandline.webserver.php).
+
+Para utilizá-lo, basta digitar o seguinte comando:
+
+```shell
+$ php -S localhost:9000
+```
+Dessa maneira, o PHP irá levantar um servidor web na porta ```9000``` e específicar a pasta atual como o seu [```docroot```](http://www.karelia.com/support/sandvox/help/z/Document_Root.html).
+
+Veja o output abaixo e observe o atual ```Document Root```:
+
+```shell
+PHP 5.4.17 Development Server started at Mon Aug 17 16:08:21 2015
+Listening on http://localhost:9000
+Document root is /Users/jweber/dev/projects/curso-php-free
+Press Ctrl-C to quit.
+```
+Se você quiser forçar um outro caminho como ```docroot```, acrescente ao comando anterior o atributo ```-t```, ficando dessa maneira:
+
+```shell
+$ php -S localhost:9000 -t c:\www
+```
+
+Agora o output será algo parecido com esse:
+
+```shell
+PHP 5.4.17 Development Server started at Mon Aug 17 16:08:21 2015
+Listening on http://localhost:9000
+Document root is c:\www
+Press Ctrl-C to quit.
+```
+
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
 
