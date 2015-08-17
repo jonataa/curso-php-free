@@ -184,6 +184,64 @@ O PHP sempre foi muito popular entre as [linguagens de programação server-side
 
 > Fonte: [What are the top 10 websites built with PHP?](http://www.quora.com/What-are-the-top-10-websites-built-with-PHP)
 
+# Preparando o Ambiente
+
+Sempre utilize a última versão estável do PHP por causa do grande número de features e correções que foram adicionados ao longo dos anos. Atualmente estamos na versão [PHP 5.6](http://php.net/downloads.php).
+
+## Instalando no Windows
+Faça o download dos arquivos binários (.zip) [nessa página](http://windows.php.net/download/) e descompacte-os na pasta ```c:\php56``` do seu computador. Verifique se nessa pasta existe o arquivo ```c:\php56\php.exe```. Agora, vamos adicionar o PHP à variável de ambiente [PATH](http://www.windows-commandline.com/set-path-command-line/). Digite no [Prompt de Comando](https://pt.wikipedia.org/wiki/Prompt_de_comando) (ou CMD) o comando abaixo e pressione ```ENTER```:
+
+```
+setx path "%path%;c:\php56"
+```
+
+Se você não tem muito domínio com a linha de comando, dê uma olhada [nesse tutorial](https://www.java.com/pt_BR/download/help/path.xml), pois ele mostra como adicionar um caminho à variável de ambiente PATH.
+
+## Instalando no Linux
+
+A melhor maneira de instalar o PHP numa distribuição Linux baseada em Unix é utilizando um [geranciador de pacote](https://en.wikipedia.org/wiki/List_of_software_package_management_systems#Linux_distributions). Isso vai depender da sua distribuição Linux na qual você está utilizando. No Ubuntu, uma das distribuições mais populares, você irá instalar através do gerenciador de pacote ```apt```. Apenas digite o comando abaixo e [verifique se foi instalado corretamente](#verificando-a-instalação).
+
+```
+$ sudo apt-get install php5-cli
+```
+> Não incluir o sinal cifrão/dollar no comando.
+
+
+## Instalando no Mac OSX
+
+No sistema operacional Macintosh, o PHP já vem pré-instalado, na maioria das vezes na versão ```5.4```. Antes de instalar, [verifique se você já possui o PHP instalado](#verificando-a-instalação). Se não, a melhor maneira de instalar no Mac OSX é utilizando o gerenciador de pacotes chamado ```
+Homebrew``` (ou apenas ```Brew```).
+
+> [Site do Homebrew](http://brew.sh/)
+
+Um vez que o ```Homebrew``` foi instalado corretamente, basta digitar o comando a seguir:
+
+```
+$ brew install php55
+```
+
+Agora, verifique se o PHP foi instalado corratamente no [tópico](#verificando-a-instalação) a seguir.
+
+## Verificando a instalação
+
+Para saber se o PHP está instalado corretamente no seu sistema operacional, digite ```php -v``` no CMD (ou Shell, para usuários Linux) e verifique se você obtém uma resposta parecida com essa:
+
+```
+$ php -v
+PHP 5.6.4 (cli) (built: Dec 24 2014 12:05:33)
+Copyright (c) 1997-2014 The PHP Group
+Zend Engine v2.6.0, Copyright (c) 1998-2014 Zend Technologies
+    with Zend OPcache v7.0.4-dev, Copyright (c) 1999-2014, by Zend Technologies
+    with Xdebug v2.2.5, Copyright (c) 2002-2014, by Derick Rethans
+```
+
+> Esse comando é utilizado para mostrar a versão PHP instalada no seu sistema operacional.
+
+Leia mais:
+* [O que significa thread safety quando estou fazendo o download do PHP?](http://php.net/manual/pt_BR/faq.obtaining.php#faq.obtaining.threadsafety)
+* [eBook - PHP Pandas - Installation](http://daylerees.com/php-pandas-installation/)
+* [PHP The Right Way - Getting Started](http://www.phptherightway.com/#getting_started)
+
 # PHP Básico
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
