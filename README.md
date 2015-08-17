@@ -243,7 +243,9 @@ Leia mais:
 
 ## Editores de Texto
 
-Durante o nosso curso, utilizaremos o [Atom.io](https://atom.io/) como editor de texto para criar nossos scripts PHP. Ele é um editor open source e foi desenvolvido pela galera do [Github](https://github.com/). Faça o download [aqui](https://atom.io/) e instale de acordo com o seu sistema operacional.
+Durante o nosso curso, utilizaremos o [Atom.io](https://atom.io/) como editor de texto para criar nossos scripts PHP. Ele é um editor open source e foi desenvolvido pela equipe do [Github](https://github.com/). Faça [aqui](https://atom.io/) o download do binário e instale no seu computador de acordo com o seu sistema operacional.
+
+![Atom.io Logo](imgs/atom_logo.png)
 
 # PHP Básico
 
