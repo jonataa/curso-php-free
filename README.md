@@ -318,7 +318,7 @@ Parabéns! Você acaba de executar seu primeiro script PHP :)
 # PHP Básico
 Uma vez que estamos aptos a executar os scripts PHP, tanto via CLI (Command-Line Interface) quanto via Servidor Web, a partir de agora daremos início aos estudos de sintaxe básica da linguagem PHP.
 
-## 
+##
 
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
@@ -343,7 +343,7 @@ Existem diferentes maneiras de abrir e fechar um bloco de instruções PHP.
 <?php echo 'Nós omitimos a última tag de fechamento';
 ```
 
-> OBS: Não é necessário colocar um ```;``` quando você abre e fecha um bloco de instruções na mesma linha.
+> Note que não é necessário colocar um ```;``` quando você abre e fecha um bloco de instruções na mesma linha.
 
 Você também pode escapar utilizada expressões condicionais avançadas:
 
