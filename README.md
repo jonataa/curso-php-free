@@ -247,8 +247,6 @@ Durante o nosso curso, utilizaremos o [Atom.io](https://atom.io/) como editor de
 
 ![Atom.io Logo](imgs/atom_logo.png)
 
-# PHP Básico
-
 ## Hello, World
 
 Uma vez que nosso [ambiente de desenvolvimento está preparado](#preparando-o-ambiente), iremos executar nosso primeiro script PHP. Existem diversas maneiras de executá-lo, uma delas é via Terminal (ou CMD, no caso do Windows), digite o comando abaixo:
@@ -302,7 +300,7 @@ Se você quiser forçar um outro caminho como ```docroot```, acrescente ao coman
 $ php -S localhost:9000 -t c:\www
 ```
 
-Agora o output será algo parecido com esse:
+Agora o output será algo parecido com isso:
 
 ```shell
 PHP 5.4.17 Development Server started at Mon Aug 17 16:08:21 2015
@@ -310,6 +308,17 @@ Listening on http://localhost:9000
 Document root is c:\www
 Press Ctrl-C to quit.
 ```
+
+Abra esse link [http://localhost:9000/helloworld.php](http://localhost:9000/exemplos/helloworld.php) no seu navegador e veja o resultado do seu script. Se não, você receberá uma mensagem ```HTTP 404 (page not found)```.
+
+> Lembre-se que o arquivo ```helloworld.php``` deverá estar dentro da pasta ```docroot```, por exemplo: ```c:\www\helloworld.php```
+
+Parabéns! Você acaba de executar seu primeiro script PHP :)
+
+# PHP Básico
+Uma vez que estamos aptos a executar os scripts PHP, tanto via CLI (Command-Line Interface) quanto via Servidor Web, a partir de agora daremos início aos estudos de sintaxe básica da linguagem PHP.
+
+## 
 
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
