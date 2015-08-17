@@ -162,6 +162,28 @@ Leia mais:
 * [PHP Museum](http://museum.php.net/)
 * [Video: PHP Development History 2014](https://www.youtube.com/watch?v=ULjUgdxNaHg)
 
+## Popularidade
+
+O PHP sempre foi muito popular entre as [linguagens de programação server-side](https://pt.wikipedia.org/wiki/Linguagem_server-side), hoje, 81% das páginas web utilizam PHP ([w3techs](http://w3techs.com/)). Os websites mais famosos são:
+
+1. Facebook (tem sua própria versão do PHP, chamada de [HHVM](http://hhvm.com/))
+2. Wikipedia
+3. Baidu
+4. Yahoo!
+5. Tumblr
+6. Flickr
+7. Wordpress
+8. Mailchimp
+9. LAD Bible
+10. Birchbox
+11. SeatGeek
+12. Fotolia
+13. Flipkart
+14. Digg
+15. iStockPhoto
+
+> Fonte: [What are the top 10 websites built with PHP?](http://www.quora.com/What-are-the-top-10-websites-built-with-PHP)
+
 # PHP Básico
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
