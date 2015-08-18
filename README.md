@@ -371,6 +371,21 @@ $variavel = 'Legal';
 echo "Variáveis funcionam assim: $variavel";
 ```
 
+## Operadores de String
+
+```php
+<?php
+$a = "Hello ";
+$b = $a . "World!"; // now $b contains "Hello World!"
+
+$a = "Hello ";
+$a .= "World!";     // now $a contains "Hello World!"
+?>
+```
+
+Leia mais:
+* [php.net - String Operators]
+
 ## Integers
 Um ```integer``` é um número que está contido nesse intervalo ```Z = {..., -2, -1, 0, 1, 2, ...}```. E eles podem ser representados em decimal (base 10), hexadecimal (base 16), octal (base 8) ou binário (base 2). Os sinais de ```-``` ou ```+``` são opcionais.
 
@@ -575,13 +590,75 @@ Leia mais:
 Em breve.
 
 ## Constantes
-Em breve.
+Uma constante é um identificador (nome) para um único valor. Como o nome sugere, esse valor não pode mudar durante a execução do script (exceção às [constantes mágicas](http://php.net/manual/pt_BR/language.constants.predefined.php), que não são constantes de verdade). As constantes são "case sensitive" (sensível ao tamanho de letras) por padrão. Por convenção, identificadores de constantes são sempre em maiúsculas.
+
+**Exemplo - Constantes válidas e inválidas**
+```php
+<?php
+
+// Valid constant names
+define("FOO",     "something");
+define("FOO2",    "something else");
+define("FOO_BAR", "something more");
+
+// Invalid constant names
+define("2FOO",    "something");
+
+// This is valid, but should be avoided:
+// PHP may one day provide a magical constant
+// that will break your script
+define("__FOO__", "something");
+
+?>
+```
+
+Leia mais:
+* [php.net - Constantes](http://php.net/manual/pt_BR/language.constants.php)
 
 ## Funções
 Em breve.
 
 ## Operadores Aritméticos
-Em breve.
+
+Exemplo |	Nome          | Resultado
+------- | ------------- | ---------
+-$a	    | Negação	      | Oposto de $a.
+$a + $b	| Adição        |	Soma de $a e $b.
+$a - $b	| Subtração     |	Diferença entre $a e $b.
+$a * $b	| Multiplicação |	Produto de $a e $b.
+$a / $b	| Divisão	      | Quociente de $a por $b.
+$a % $b	| Módulo	      | Resto de $a dividido por $b.
+
+> O operador de divisão ```/``` sempre retorna um valor ponto flutuante, a não ser que os dois operadores sejam inteiros
+
+O PHP possui inúmeras [funções matemáticas](http://php.net/manual/pt_BR/ref.math.php), como por exemplo:
+
+```php
+<?php
+print pi();        // 3.1415926535898 "Valor de PI"
+print ceil(5.4);   // 6 "Arredonda para cima"
+print hypot(3, 4); // 5 "Calcula a Hipotenusa"
+print max([50, 550, 40, 45, 44]); // 550 "Encontra o valor máximo"
+```
+
+Leia mais:
+* [php.net - Operadores Aritméticos](http://php.net/manual/pt_BR/language.operators.arithmetic.php)
+* [php.net - Funções matemáticas](http://php.net/manual/pt_BR/ref.math.php)
+
+## Operadores Lógicos
+
+Exemplo   |	Nome  | Resultado
+--------- | ----- | ---------
+$a and $b	| E	    | Verdadeiro (**TRUE**) se tanto $a quanto $b são verdadeiros.
+$a or $b	| OU    |	Verdadeiro se $a ou $b são verdadeiros.
+$a xor $b |	XOR   |	Verdadeiro se $a ou $b são verdadeiros, mas não ambos.
+! $a	    | NÃO	  | Verdadeiro se $a não é verdadeiro.
+$a && $b	| E	    | Verdadeiro se tanto $a quanto $b são verdadeiros.
+$a || $b	| OU	  | Verdadeiro se $a ou $b são verdadeiros.
+
+Leia mais:
+* [php.net - Operadores Lógicos](http://php.net/manual/pt_BR/language.operators.logical.php)
+* [php.net - Precedência de Operadores](http://php.net/manual/pt_BR/language.operators.precedence.php)
 
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
