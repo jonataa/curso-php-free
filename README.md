@@ -374,10 +374,22 @@ echo "Variáveis funcionam assim: $variavel";
 ## Arrays
 Um array no PHP é atualmente um mapa ordenado. Um mapa é um tipo que relaciona valores para chaves. Este tipo é otimizado de várias maneiras, então você pode usá-lo como um array real, ou uma lista (vetor), hashtable (que é uma implementação de mapa), dicionário, coleção, pilha, fila e provavelmente mais. Como você pode ter outro array PHP como um valor, você pode facilmente simular árvores.
 
+**Sintaxe**
+```
+array(
+    chave  => valor,
+    chave2 => valor2,
+    chave3 => valor3,
+    ...
+)
+```
+
+**Exemplo - Array Simples**
 ```php
 <?php
 
 $lista = array('Foo', 'Bar', 'Fizz', 'Buzz');
+
 $lista = ['Foo', 'Bar', 'Fizz', 'Buzz']; // php >= 5.4
 $numeros = [10, "vinte", 30, 40.8, false, null]; // php >= 5.4
 
@@ -403,14 +415,85 @@ array(6) {
 
 A ```chave``` pode ser tanto um [integer](http://php.net/manual/pt_BR/language.types.integer.php) ou uma [string](http://php.net/manual/pt_BR/language.types.string.php). Se a ```chave``` é uma representação padrão de um integer, ele será interpretado assim (por exemplo, "8" será interpretado como 8, enquanto "08" será interpretado como "08"). Os índices do tipo ```float``` serão truncados para ```integer```. Não há diferença entre arrays indexados e associativos em PHP, apenas um tipo de array, que pode ter índices do tipo ```integer``` ou ```string```.
 
+**Exemplo - Chaves como String**
+
 ```php
 <?php
 
-$arr = array("somearray" => array(6 => 5, 13 => 9, "a" => 42));
+$variavel = array(
+  "foo" => "bar",
+  "bar" => "foo",
+);
 
-echo $arr["somearray"][6];    // 5
-echo $arr["somearray"][13];   // 9
-echo $arr["somearray"]["a"];  // 42
+// as of PHP 5.4
+$variavel = [
+  "foo" => "bar",
+  "bar" => "foo",
+];
+
+```
+
+**Exemplo - Acessando Valores de um Array**
+```php
+<?php
+
+$variavel = array(
+  "somearray" => array(
+    6 => 5,
+    13 => 9,
+    "a" => 42
+  )
+);
+
+echo $variavel["somearray"][6];    // 5
+echo $variavel["somearray"][13];   // 9
+echo $variavel["somearray"]["a"];  // 42
+```
+
+**Exemplo - Type Casting and Overwriting**
+```php
+<?php
+$array = array(
+    1    => "a",
+    "1"  => "b",
+    1.5  => "c",
+    true => "d",
+);
+var_dump($array);
+
+/*
+array(1) {
+  [1]=>
+  string(1) "d"
+}
+*/
+?>
+```
+
+**Exemplo - Mixed integer and string keys**
+```php
+<?php
+$array = array(
+    "foo" => "bar",
+    "bar" => "foo",
+    100   => -100,
+    -100  => 100,
+);
+var_dump($array);
+
+/*
+array(4) {
+  ["foo"]=>
+  string(3) "bar"
+  ["bar"]=>
+  string(3) "foo"
+  [100]=>
+  int(-100)
+  [-100]=>
+  int(100)
+}
+*/
+?>
 ```
 
 Leia mais:
