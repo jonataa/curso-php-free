@@ -371,6 +371,31 @@ $variavel = 'Legal';
 echo "Variáveis funcionam assim: $variavel";
 ```
 
+## Integers
+Um ```integer``` é um número que está contido nesse intervalo ```Z = {..., -2, -1, 0, 1, 2, ...}```. E eles podem ser representados em decimal (base 10), hexadecimal (base 16), octal (base 8) ou binário (base 2). O sinal de ```-``` ou ```+``` são opcionais.
+
+Tipo        | Notação
+----------- | -------
+Octal       | Número começa com ```0``` (zero)
+Hexadecimal | Número começa com 0x
+Binário     | Número começa com 0b
+
+> Binários literais inteiros estão disponíveis desde o ```PHP 5.4```.
+
+**Exemplo - Inteiros Literais**
+```php
+<?php
+$a = 1234; // decimal number
+$a = -123; // a negative number
+$a = 0123; // octal number (equivalent to 83 decimal)
+$a = 0x1A; // hexadecimal number (equivalent to 26 decimal)
+$a = 0b11111111; // binary number (equivalent to 255 decimal)
+?>
+```
+
+Leia mais:
+* [php.net - Integers](http://php.net/manual/en/language.types.integer.php)
+
 ## Arrays
 Um array no PHP é atualmente um mapa ordenado. Um mapa é um tipo que relaciona valores para chaves. Este tipo é otimizado de várias maneiras, então você pode usá-lo como um array real, ou uma lista (vetor), hashtable (que é uma implementação de mapa), dicionário, coleção, pilha, fila e provavelmente mais. Como você pode ter outro array PHP como um valor, você pode facilmente simular árvores.
 
@@ -498,6 +523,9 @@ array(4) {
 
 Leia mais:
 * [php.net - Arrays](http://php.net/manual/pt_BR/language.types.array.php)
+
+## Manipulando Arrays
+Em breve.
 
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
