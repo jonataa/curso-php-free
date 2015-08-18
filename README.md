@@ -403,7 +403,7 @@ Números de ponto flutuante (também conhecidos como ```floats```, ```doubles```
 ```php
 <?php
 $a = 1.234;
-$b = 1.2e3;
+$b = 1.2e3; // 1200
 $c = 7E-10;
 ```
 
@@ -424,6 +424,24 @@ $foo = (50 != '50') // assign the value FALSE to $foo
 $foo = (50 !== '50') // assign the value TRUE to $foo
 $foo = (50 === '50') // assign the value FALSE to $foo
 ```
+
+## NULL
+O valor especial **NULL** representa uma variável "sem valor".
+
+Uma variável é considerado ```null``` quando:
+* Atribui a constante ```NULL```;
+* Não atribuiu valor algum ainda;
+* Usando a função [unset()](http://php.net/manual/en/function.unset.php);
+
+```php
+<?php
+$var = NULL;
+
+$texto = 'Foo Bar'; // $texto é uma string
+unset($texto); // $texto é NULL
+?>
+```
+> Dê uma olhada nas funções [is_null()](http://php.net/manual/en/function.is-null.php) e [unset()](http://php.net/manual/en/function.unset.php).
 
 ## Arrays
 Um array no PHP é atualmente um mapa ordenado. Um mapa é um tipo que relaciona valores para chaves. Este tipo é otimizado de várias maneiras, então você pode usá-lo como um array real, ou uma lista (vetor), hashtable (que é uma implementação de mapa), dicionário, coleção, pilha, fila e provavelmente mais. Como você pode ter outro array PHP como um valor, você pode facilmente simular árvores.
@@ -554,6 +572,15 @@ Leia mais:
 * [php.net - Arrays](http://php.net/manual/pt_BR/language.types.array.php)
 
 ## Manipulando Arrays
+Em breve.
+
+## Constantes
+Em breve.
+
+## Funções
+Em breve.
+
+## Operadores Aritméticos
 Em breve.
 
 ## Escapando o HTML
