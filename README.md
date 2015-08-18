@@ -2,7 +2,7 @@
 > ## Pull Requests são sempre bem vindos!
 
 # Curso PHP: Começando do jeito certo!
-Guia de estudo do curso gratuito de PHP organizado em parceria com a Universidade Salvador [site](http://jonataa.github.io/).
+Guia de estudo do curso gratuito de PHP organizado em parceria com a Universidade Salvador.
 
 ## Objetivo
 Ensinar a linguagem PHP de modo que os estudantes aprimorem suas habilidades na área e assim ao concluírem o curso possuam conhecimento amplo das noções básicas do mesmo, permitindo que os mesmos participem e/ou desenvolvam projetos que envolvam a referida linguagem, assim como, em outras atividades relacionadas à programação. O objetivo geral é, portanto, preparar os alunos na teoria e na prática para que programem do "jeito certo".
