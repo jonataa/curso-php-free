@@ -1,3 +1,6 @@
+> # Work In Progress
+> ## Pull Requests são sempre bem vindos!
+
 # Curso PHP: Do Jeito Certo
 Conteúdo do curso "PHP: Do Jeito Certo" ministrado em parceria com a Universidade Salvador
 
@@ -591,6 +594,62 @@ Leia mais:
 
 ## Manipulando Arrays
 Em breve.
+
+## Operadores de Comparação
+Operadores de comparação, como os seus nomes implicam, permitem que você compare dois valores. Você pode se interessar em ver as [tabelas de comparação de tipos](http://php.net/manual/pt_BR/types.comparisons.php), que tem exemplo das várias comparações entre tipos relacionadas.
+
+Exemplo	  | Nome           | Resultado
+--------- | -------------- | ----------
+$a == $b  | Igual          | Verdadeiro (TRUE) se $a é igual a $b.
+$a === $b | Idêntico       | Verdadeiro (TRUE) se $a é igual a $b, e eles são do mesmo tipo (introduzido no PHP4).
+$a != $b  | Diferente      | Verdadeiro se $a não é igual a $b.
+$a <> $b  | Diferente      | Verdadeiro se $a não é igual a $b.
+$a !== $b	| Não idêntico   | Verdadeiro de $a não é igual a $b, ou eles não são do mesmo tipo (introduzido no PHP4).
+$a < $b	  | Menor que      | Verdadeiro se $a é estritamente menor que $b.
+$a > $b	  | Maior que      | Verdadeiro se $a é estritamente maior que $b.
+$a <= $b  | Menor ou igual | Verdadeiro se $a é menor ou igual a $b.
+$a >= $b	| Maior ou igual | Verdadeiro se $a é maior ou igual a $b.
+
+Se você comparar um inteiro com uma string, a string é [convertida para um número](http://php.net/manual/pt_BR/language.types.string.php#language.types.string.conversion). Se você comparar 2 strings numéricas, elas serão comparadas como inteiras. Estas regras também se aplicam ao comando switch.
+
+```php
+<?php
+var_dump(0 == "a"); // 0 == 0 -> true
+var_dump("1" == "01"); // 1 == 1 -> true
+var_dump("1" == "1e0"); // 1 == 1 -> true
+
+switch ("a") {
+  case 0:
+      echo "0";
+      break;
+  case "a": // nunca é alcançado porque "a" já foi combinado com 0
+      echo "a";
+      break;
+}
+?>
+```
+
+Leia mais:
+* [php.net - Operadores de Comparação](http://php.net/manual/pt_BR/language.operators.comparison.php)
+
+## Operadores de Incremento/Decremento
+O PHP suporta operadores de pré e pós-incremento e decremento no estilo C.
+
+Exemplo |	Nome            | Efeito
+------- | --------------- | -------
+++$a    | Pré-incremento	| Incrementa $a em um, e então retorna $a.
+$a++    | Pós-incremento	| Retorna $a, e então incrementa $a em um.
+--$a    | Pré-decremento	| Decrementa $a em um, e então retorna $a.
+$a--    | Pós-decremento	| Retorna $a, e então decrementa $a em um.
+
+Leia mais:
+* [php.net – Operadores de Incremento/Decremento](http://php.net/manual/pt_BR/language.operators.increment.php)
+
+## Outros Operadores
+* [Operadores de Atribuição](http://php.net/manual/pt_BR/language.operators.assignment.php)
+* [Operador Bit-a-bit](http://php.net/manual/pt_BR/language.operators.bitwise.php)
+* [Operadores de controle de erro](http://php.net/manual/pt_BR/language.operators.errorcontrol.php)
+* [Operadores de Execução](http://php.net/manual/pt_BR/language.operators.execution.php)
 
 ## Constantes
 Uma constante é um identificador (nome) para um único valor. Como o nome sugere, esse valor não pode mudar durante a execução do script (exceção às [constantes mágicas](http://php.net/manual/pt_BR/language.constants.predefined.php), que não são constantes de verdade). As constantes são "case sensitive" (sensível ao tamanho de letras) por padrão. Por convenção, identificadores de constantes são sempre em maiúsculas.
