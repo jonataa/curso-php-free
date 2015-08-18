@@ -372,7 +372,7 @@ echo "Variáveis funcionam assim: $variavel";
 ```
 
 ## Operadores de String
-Possibilita concatenar ou juntar strings.
+Possibilita concatenar ou juntar strings. Em algumas linguagens o sinal de ```+``` faz esse papel, mas no PHP ele foi subtituído pelo ```ponto```.
 
 **Exemplo - Concatenação de Strings**
 ```php
@@ -387,6 +387,7 @@ $a .= "World!";     // Agora $a contém a string "Hello World!"
 
 Leia mais:
 * [php.net - String Operators](http://php.net/manual/en/language.operators.string.php)
+* [Why is the php string concatenation operator a dot (.)?](http://stackoverflow.com/questions/4266799/why-is-the-php-string-concatenation-operator-a-dot)
 
 ## Integers
 Um ```integer``` é um número que está contido nesse intervalo ```Z = {..., -2, -1, 0, 1, 2, ...}```. E eles podem ser representados em decimal (base 10), hexadecimal (base 16), octal (base 8) ou binário (base 2). Os sinais de ```-``` ou ```+``` são opcionais.
