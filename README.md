@@ -372,7 +372,7 @@ echo "Variáveis funcionam assim: $variavel";
 ```
 
 ## Integers
-Um ```integer``` é um número que está contido nesse intervalo ```Z = {..., -2, -1, 0, 1, 2, ...}```. E eles podem ser representados em decimal (base 10), hexadecimal (base 16), octal (base 8) ou binário (base 2). O sinal de ```-``` ou ```+``` são opcionais.
+Um ```integer``` é um número que está contido nesse intervalo ```Z = {..., -2, -1, 0, 1, 2, ...}```. E eles podem ser representados em decimal (base 10), hexadecimal (base 16), octal (base 8) ou binário (base 2). Os sinais de ```-``` ou ```+``` são opcionais.
 
 Tipo        | Notação
 ----------- | -------
@@ -382,7 +382,7 @@ Binário     | Número começa com 0b
 
 > Binários literais inteiros estão disponíveis desde o ```PHP 5.4```.
 
-**Exemplo - Inteiros Literais**
+**Exemplo - Literais Inteiros**
 ```php
 <?php
 $a = 1234; // decimal number
@@ -395,6 +395,35 @@ $a = 0b11111111; // binary number (equivalent to 255 decimal)
 
 Leia mais:
 * [php.net - Integers](http://php.net/manual/en/language.types.integer.php)
+* [php.net - String conversion to numbers](http://php.net/manual/en/language.types.string.php#language.types.string.conversion)
+
+## Floating point numbers
+Números de ponto flutuante (também conhecidos como ```floats```, ```doubles``` ou ```real numbers```) podem ser escritos seguindo diversas sintaxes:
+
+```php
+<?php
+$a = 1.234;
+$b = 1.2e3;
+$c = 7E-10;
+```
+
+Leia mais:
+* [php.net - Floating point numbers](http://php.net/manual/en/language.types.float.php)
+
+## Booleans
+Um ```boolean``` representa o "valor da verdade" e pode ser ```TRUE``` ou ```FALSE```. Para representá-lo, utilize as constantes **TRUE** ou **FALSE**. Ambas não são case-sensitive, ou seja, não importa se está em caixa alta ou baixa (```True``` é igual a ```TRUE``` que é igual a ```true```).
+
+**Exemplo**
+```php
+<?php
+$foo = false; // assign the value FALSE to $foo
+
+$foo = (50 == '50') // assign the value TRUE to $foo
+$foo = (50 != '50') // assign the value FALSE to $foo
+
+$foo = (50 !== '50') // assign the value TRUE to $foo
+$foo = (50 === '50') // assign the value FALSE to $foo
+```
 
 ## Arrays
 Um array no PHP é atualmente um mapa ordenado. Um mapa é um tipo que relaciona valores para chaves. Este tipo é otimizado de várias maneiras, então você pode usá-lo como um array real, ou uma lista (vetor), hashtable (que é uma implementação de mapa), dicionário, coleção, pilha, fila e provavelmente mais. Como você pode ter outro array PHP como um valor, você pode facilmente simular árvores.
