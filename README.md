@@ -318,7 +318,103 @@ Parabéns! Você acaba de executar seu primeiro script PHP :)
 # PHP Básico
 Uma vez que estamos aptos a executar os scripts PHP, tanto via CLI (Command-Line Interface) quanto via Servidor Web, a partir de agora daremos início aos estudos de sintaxe básica da linguagem PHP.
 
-##
+## Variáveis
+Em PHP, variáveis são palavras que começam com um símbolo de dólar ```$```. Vejamos um exemplo:
+
+```php
+<?php
+
+$variavel = 'Hello, World';
+$variavel = 3;
+$variavel = 1.4;
+$variavel = false;
+$variavel = 50 == '50'; // true
+$variavel = 50 === '50' // false
+$variavel = null;
+```
+
+PHP é uma [linguagem fracamente tipada](https://pt.wikipedia.org/wiki/Linguagem_tipada), então, você não específica o tipo da variável, apenas atribui um valor à ela. As linguagens com essa característica permitem que você altere os tipos de dados contido em uma variável durante a execução do programa.
+
+O PHP suporta oito [tipos primitivos](http://php.net/manual/pt_BR/language.types.intro.php): ```String```, ```Integer```, ```Boolean```, ```Float```, ```Array```, ```Object```, ```Resource``` e ```NULL```.
+
+## Strings
+
+* Aspas Simples
+
+```php
+<?php
+
+echo 'Essa é uma string simples';
+
+echo 'Além disso, você pode embarcar novas linhas
+nas strings, esse é um caminho
+legal de fazer';
+
+// Arnold once said: "I'll be back"
+echo 'Arnold once said: "I\'ll be back"';
+
+// Isso não vai criar \n uma nova linha
+echo 'Isso não vai criar \n uma nova linha';
+
+$variavel = 'com';
+// Variáveis não funcionam $variavel com as simples
+echo 'Variáveis não funcionam $variavel com aspas simples';
+```
+
+* Aspas Duplas
+
+```php
+<?php
+
+$variavel = 'Legal';
+// Variáveis funcionam assim: Legal
+echo "Variáveis funcionam assim: $variavel";
+```
+
+## Arrays
+Um array no PHP é atualmente um mapa ordenado. Um mapa é um tipo que relaciona valores para chaves. Este tipo é otimizado de várias maneiras, então você pode usá-lo como um array real, ou uma lista (vetor), hashtable (que é uma implementação de mapa), dicionário, coleção, pilha, fila e provavelmente mais. Como você pode ter outro array PHP como um valor, você pode facilmente simular árvores.
+
+```php
+<?php
+
+$lista = array('Foo', 'Bar', 'Fizz', 'Buzz');
+$lista = ['Foo', 'Bar', 'Fizz', 'Buzz']; // php >= 5.4
+$numeros = [10, "vinte", 30, 40.8, false, null]; // php >= 5.4
+
+var_dump($numeros);
+
+/*
+array(6) {
+  [0]=>
+  int(10)
+  [1]=>
+  string(5) "vinte"
+  [2]=>
+  int(30)
+  [3]=>
+  float(40.8)
+  [4]=>
+  bool(false)
+  [5]=>
+  NULL
+}
+*/
+```
+
+A ```chave``` pode ser tanto um [integer](http://php.net/manual/pt_BR/language.types.integer.php) ou uma [string](http://php.net/manual/pt_BR/language.types.string.php). Se a ```chave``` é uma representação padrão de um integer, ele será interpretado assim (por exemplo, "8" será interpretado como 8, enquanto "08" será interpretado como "08"). Os índices do tipo ```float``` serão truncados para ```integer```. Não há diferença entre arrays indexados e associativos em PHP, apenas um tipo de array, que pode ter índices do tipo ```integer``` ou ```string```.
+
+```php
+<?php
+
+$arr = array("somearray" => array(6 => 5, 13 => 9, "a" => 42));
+
+echo $arr["somearray"][6];    // 5
+echo $arr["somearray"][13];   // 9
+echo $arr["somearray"]["a"];  // 42
+```
+
+Leia mais:
+* [php.net - Arrays](http://php.net/manual/pt_BR/language.types.array.php)
 
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
