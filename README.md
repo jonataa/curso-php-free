@@ -750,7 +750,7 @@ Leia mais:
 ## Estruturas de controle
 Qualquer script PHP é construído por uma série de instruções. Uma instrução pode ser uma atribuição, uma chamada de função, um 'loop', uma instrução condicional, ou mesmo uma instrução que não faz nada (um comando vazio). Instruções geralmente terminam com um ponto e vírgula. Além disso, as instruções podem ser agrupados em um grupo de comandos através do encapsulamento de um grupo de comandos com chaves. Um grupo de comandos é uma instrução também.
 
-Essa é uma lista de estruturas de controle no PHP:
+Essa é uma lista das estruturas de controle no PHP:
 
 * if
 * else
