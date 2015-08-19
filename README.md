@@ -789,7 +789,7 @@ if ($a > $b) {
 }
 ?>
 ```
-** Exemplo - Else**
+**Exemplo - Else**
 ```php
 <?php
 if ($a > $b) {
@@ -801,7 +801,7 @@ if ($a > $b) {
 ```
 > A instrução ```else``` só é executada se a expressão de condição do ```if``` for FALSE, e se tiver qualquer expressão elseif - somente se eles também retornarem FALSE.
 
-** Exemplo - Elseif**
+**Exemplo - Elseif**
 ```php
 <?php
 if ($a > $b) {
@@ -1021,14 +1021,14 @@ switch ($i) {
 ```
 
 Leia mais:
-[php.net - Switch](http://php.net/manual/pt_BR/control-structures.switch.php)
+* [php.net - Switch](http://php.net/manual/pt_BR/control-structures.switch.php)
 
 ## Include / Require
 A instrução ```include``` inclui e avalia um arquivo específico.
 
 Arquivos são incluidos baseado no caminho do arquivo fornecido ou, se não for especificado um caminho, o [include_path](http://php.net/manual/pt_BR/ini.core.php#ini.include-path) especificado. Se o arquivo não for encontrado no [include_path](http://php.net/manual/pt_BR/ini.core.php#ini.include-path), a instrução include vai então verificar se existe o arquivo no diretório onde o include é executado e no diretório atual para só depois falhar. O construtor do include irá emitir um warning se não localizar o arquivo; comportamento diferente do [require](http://php.net/manual/pt_BR/function.require.php), que irá emitir um fatal error.
 
-**Exemplo - Usando o Include no PHP
+**Exemplo - Usando o Include no PHP**
 ```arquivo01.php```
 ```php
 <?php
