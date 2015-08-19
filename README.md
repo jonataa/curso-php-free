@@ -506,7 +506,7 @@ array(6) {
 */
 ```
 
-A ```chave``` pode ser tanto um [integer](http://php.net/manual/pt_BR/language.types.integer.php) ou uma [string](http://php.net/manual/pt_BR/language.types.string.php). Se a ```chave``` é uma representação padrão de um integer, ele será interpretado assim (por exemplo, "8" será interpretado como 8, enquanto "08" será interpretado como "08"). Os índices do tipo ```float``` serão truncados para ```integer```. Não há diferença entre arrays indexados e associativos em PHP, apenas um tipo de array, que pode ter índices do tipo ```integer``` ou ```string```.
+A ```chave``` pode ser tanto um integer ou uma string. Se a ```chave``` é uma representação padrão de um integer, ele será interpretado assim (por exemplo, "8" será interpretado como 8, enquanto "08" será interpretado como "08"). Os índices do tipo ```float``` serão truncados para ```integer```. Não há diferença entre arrays indexados e associativos em PHP, apenas um tipo de array, que pode ter índices do tipo ```integer``` ou ```string```.
 
 **Exemplo - Chaves como String**
 
@@ -593,7 +593,35 @@ Leia mais:
 * [php.net - Arrays](http://php.net/manual/pt_BR/language.types.array.php)
 
 ## Manipulando Arrays
-Em breve.
+Você pode também modificar um array existente explicitamente assimilando valores nele.
+
+Isto é feito apenas assimilando valores para o array enquanto especificando a chave em colchetes. Você pode omitir a chave, colocando um par vazio de colchetes ("[]").
+
+```
+$arr[chave] = valor;
+$arr[] = valor;
+// chave tanto um [integer](http://php.net/manual/pt_BR/language.types.integer.php) ou [string](http://php.net/manual/pt_BR/language.types.string.php)
+// valor pode ser qualquer coisa
+```
+
+```php
+<?php
+$arr = array(5 => 1, 12 => 2);
+
+$arr[] = 56;    // Isto é o mesmo que $arr[13] = 56;
+                // nesse ponto do script
+
+$arr["x"] = 42; // Isto acrescenta um novo elemento
+                // para o array com a chave "x"
+
+unset($arr[5]); // Isto remove um elemento do array
+
+unset($arr);    // E isto apaga todo o array
+?>
+```
+
+Leia mais:
+* [php.net - Arrays](http://php.net/manual/pt_BR/language.types.array.php)
 
 ## Operadores de Comparação
 Operadores de comparação, como os seus nomes implicam, permitem que você compare dois valores. Você pode se interessar em ver as [tabelas de comparação de tipos](http://php.net/manual/pt_BR/types.comparisons.php), que tem exemplo das várias comparações entre tipos relacionadas.
@@ -677,9 +705,6 @@ define("__FOO__", "something");
 Leia mais:
 * [php.net - Constantes](http://php.net/manual/pt_BR/language.constants.php)
 
-## Funções
-Em breve.
-
 ## Operadores Aritméticos
 
 Exemplo |	Nome          | Resultado
@@ -721,6 +746,314 @@ $a || $b	| OU	  | Verdadeiro se $a ou $b são verdadeiros.
 Leia mais:
 * [php.net - Operadores Lógicos](http://php.net/manual/pt_BR/language.operators.logical.php)
 * [php.net - Precedência de Operadores](http://php.net/manual/pt_BR/language.operators.precedence.php)
+
+## Estruturas de controle
+Qualquer script PHP é construído por uma série de instruções. Uma instrução pode ser uma atribuição, uma chamada de função, um 'loop', uma instrução condicional, ou mesmo uma instrução que não faz nada (um comando vazio). Instruções geralmente terminam com um ponto e vírgula. Além disso, as instruções podem ser agrupados em um grupo de comandos através do encapsulamento de um grupo de comandos com chaves. Um grupo de comandos é uma instrução também.
+
+Essa é uma lista de estruturas de controle no PHP:
+
+* if
+* else
+* elseif/else if
+* while
+* do-while
+* for
+* foreach
+* break
+* continue
+* switch
+* return
+* require
+* include
+* require_once
+* include_once
+* goto
+
+Informações sobre cada uma delas podem ser encontradas [nessa página](http://php.net/manual/pt_BR/language.control-structures.php).
+
+## If Else
+
+```php
+<?php
+if ($a > $b)
+  echo "a is bigger than b";
+?>
+```
+> As chaves ```{}``` não são obrigatórias quando a instrução possui apenas uma linha
+
+```php
+<?php
+if ($a > $b) {
+  echo "a is bigger than b";
+  $b = $a;
+}
+?>
+```
+** Exemplo - Else**
+```php
+<?php
+if ($a > $b) {
+  echo "a is greater than b";
+} else {
+  echo "a is NOT greater than b";
+}
+?>
+```
+> A instrução ```else``` só é executada se a expressão de condição do ```if``` for FALSE, e se tiver qualquer expressão elseif - somente se eles também retornarem FALSE.
+
+** Exemplo - Elseif**
+```php
+<?php
+if ($a > $b) {
+    echo "a is bigger than b";
+} elseif ($a == $b) {
+    echo "a is equal to b";
+} else {
+    echo "a is smaller than b";
+}
+?>
+```
+
+Leia mais:
+* [php.net - if](http://php.net/manual/pt_BR/control-structures.if.php)
+* [php.net - else](http://php.net/manual/pt_BR/control-structures.else.php)
+* [php.net - elseif/else if](http://php.net/manual/pt_BR/control-structures.elseif.php)
+
+## For
+O loop for é o loop mais complexo no PHP. Ele tem comportamento semelhante ao C. A sintaxe do loop for é:
+
+```
+for (expr1; expr2; expr3)
+    statement
+```
+
+Analise os seguintes exemplos. Todos exibem números de 1 até 10:
+```php
+<?php
+/* exemplo 1 */
+
+for ($i = 1; $i <= 10; $i++) {
+  echo $i;
+}
+
+/* exemplo 2 2 */
+
+for ($i = 1; ; $i++) {
+  if ($i > 10) {
+      break;
+  }
+  echo $i;
+}
+
+/* exemplo 3 */
+
+$i = 1;
+for (; ; ) {
+  if ($i > 10) {
+      break;
+  }
+  echo $i;
+  $i++;
+}
+
+/* exemplo 4 */
+
+for ($i = 1, $j = 0; $i <= 10; $j += $i, print $i, $i++);
+?>
+```
+
+É comum para muitos usuários iterar em arrays como no exemplo abaixo.
+```php
+<?php
+/*
+ * Esta é uma array com alguns dados que devem ser modificados
+ * durante a execuçao do loop for.
+ */
+$people = array(
+  array('name' => 'Kalle', 'salt' => 856412),
+  array('name' => 'Pierre', 'salt' => 215863)
+);
+
+for($i = 0; $i < count($people); ++$i) {
+  $people[$i]['salt'] = mt_rand(000000, 999999);
+}
+?>
+```
+
+O PHP também suporta a sintaxe alternativa "dois pontos" para o loop for.
+```
+for (expr1; expr2; expr3):
+    statement
+    ...
+endfor;
+```
+Leia mais:
+* [php.net - For](http://php.net/manual/pt_BR/control-structures.for.php)
+
+## Foreach
+O ```foreach```permite interar arrays e objetos de uma maneira muito simples. Existem duas formas de utilizá-lo:
+
+```
+foreach (array_expression as $value)
+    statement
+```
+```
+foreach (array_expression as $key => $value)
+    statement
+```
+
+**Exemplo - Foreach**
+```php
+<?php
+$arr = array(1, 2, 3, 4);
+foreach ($arr as $value) {
+  echo $value;
+}
+
+/*
+Output
+1234
+*/
+?>
+```
+
+**Exemplo - Interando um range de 0 à 100**
+```php
+<?php
+foreach (range(0, 100) as $numero) {
+  echo $numero . PHP_EOL;
+}
+?>
+```
+
+**Exemplo - Interando um MapList**
+```php
+<?php
+$produtos = array(
+  ['nome' => 'XBOX', 'preco' => 3999.90],
+  ['nome' => 'TV 50"', 'preco' => 7500.00],
+  ['nome' => 'Celular Moto X', 'preco' => 820.50],
+);
+
+foreach ($produtos as $produto) {
+  echo "Nome: {$produto['nome']}, Preço: {$produto['preco']}" . PHP_EOL;
+}
+
+/*
+Nome: XBOX, Preço: 3999.9
+Nome: TV 50", Preço: 7500
+Nome: Celular Moto X, Preço: 820.5
+*/
+?>
+```
+
+**Exemplo - Interando um MapList 2**
+```php
+<?php
+$pessoa = ['nome' => João, 'idade' => 25];
+foreach ($pessoa as $campo => $valor)
+  echo "{$campo}: {$valor}" . PHP_EOL;
+
+/*
+nome: João
+idade: 25
+*/
+?>
+```
+
+Leia mais:
+* [php.net - Foreach](http://php.net/manual/pt_BR/control-structures.foreach.php)
+
+## While
+Com uma sintaxe bem parecida com a linguagem C, ```while```é uma maneira simples de fazer loops:
+
+```
+while (expr)
+    statement
+```
+```
+while (expr):
+    statement
+endwhile;
+```
+
+**Exemplo - Imprimindo de 1 à 10 com While**
+```php
+<?php
+$i = 1;
+while ($i <= 10) {
+  echo $i++;
+}
+
+/*
+12345678910
+*/
+?>
+```
+
+Leia mais:
+* [php.net - While](http://php.net/manual/pt_BR/control-structures.while.php)
+
+## Switch
+
+```php
+<?php
+if ($i == 0) {
+  echo "i equals 0";
+} elseif ($i == 1) {
+  echo "i equals 1";
+} elseif ($i == 2) {
+  echo "i equals 2";
+}
+
+switch ($i) {
+  case 0:
+    echo "i equals 0";
+    break;
+  case 1:
+    echo "i equals 1";
+    break;
+  case 2:
+    echo "i equals 2";
+    break;
+}
+?>
+```
+
+Leia mais:
+[php.net - Switch](http://php.net/manual/pt_BR/control-structures.switch.php)
+
+## Include / Require
+A instrução ```include``` inclui e avalia um arquivo específico.
+
+Arquivos são incluidos baseado no caminho do arquivo fornecido ou, se não for especificado um caminho, o [include_path](http://php.net/manual/pt_BR/ini.core.php#ini.include-path) especificado. Se o arquivo não for encontrado no [include_path](http://php.net/manual/pt_BR/ini.core.php#ini.include-path), a instrução include vai então verificar se existe o arquivo no diretório onde o include é executado e no diretório atual para só depois falhar. O construtor do include irá emitir um warning se não localizar o arquivo; comportamento diferente do [require](http://php.net/manual/pt_BR/function.require.php), que irá emitir um fatal error.
+
+**Exemplo - Usando o Include no PHP
+```arquivo01.php```
+```php
+<?php
+$texto = 'Trabalhando com Include no PHP';
+
+function dobrar($numero) {
+  return $numero * 2;
+}
+```
+
+```arquivo02.php```
+```php
+<?php
+
+include 'arquivo01.php';
+
+echo dobrar(4); // 8
+echo $texto; // Trabalhando com Include no PHP
+```
+
+Leia mais:
+* [php.net](http://php.net/manual/pt_BR/function.include.php)
+
+## Funções
+Em breve.
 
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
