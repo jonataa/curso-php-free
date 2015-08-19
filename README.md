@@ -1052,10 +1052,20 @@ echo $texto; // Trabalhando com Include no PHP
 ```
 
 Leia mais:
-* [php.net](http://php.net/manual/pt_BR/function.include.php)
+* [php.net - Include](http://php.net/manual/pt_BR/function.include.php)
 
 ## Funções
-Em breve.
+Uma função pode ser definida usando a seguinte sintaxe:
+```php
+<?php
+
+function foo ($arg_1, $arg_2, /* ..., */ $arg_n) {
+  echo "Exemplo de função.\n";
+  return $valor_retornado;
+}
+
+?>
+```
 
 ## Escapando o HTML
 Quando o PHP interpreta um arquivo, ele procura pelas **tags de abertura** e **fechamento**, as quais indicam para o PHP começar e parar de interpretar o código entre elas. Interpretar desta maneira permite ao PHP ser embutido em todos os tipos de documentos, já que tudo, fora o par de tags de abertura e fechamento é ignorado pelo interpretador do PHP. Na maioria das vezes você verá o PHP embutido em documentos HTML como neste exemplo.
