@@ -11,7 +11,7 @@ define('FALHOU', 'Nao foi dessa vez! Obtido: %s / Esperado: %s');
  * @param mixed $obtido Resultado Obtido
  * @return string Mensagem de sucesso ou de falha
  */
-function test($esperado, $obtido)
+function test($obtido, $esperado)
 {
 	if (is_bool($esperado))
 		$esperado = $esperado ? 'true' : 'false';
@@ -19,7 +19,7 @@ function test($esperado, $obtido)
 	if (is_bool($obtido))
 		$obtido = $obtido ? 'true' : 'false';
 
-	$esperado = is_null($esperado) ? 'NULL' : $esperado;
+	$obtido = is_null($obtido) ? 'NULL' : $obtido;
 
 	echo $obtido === $esperado ?
 			 SUCESSO :
