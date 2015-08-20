@@ -1083,8 +1083,7 @@ echo square(4);   // outputs '16'.
 **Exemplo - Retornando Valores e Obtendo Multiplos Valores**
 ```php
 <?php
-function numeros_pequenos()
-{
+function numeros_pequenos() {
   return array (0, 1, 2);
 }
 list ($zero, $um, $dois) = numeros_pequenos();
@@ -1106,6 +1105,59 @@ var_dump(sum(1, 2)); // outputs 'float(3)'
 Leia mais:
 * [php.net - Funções definidas pelo usuário](http://php.net/manual/pt_BR/functions.user-defined.php)
 * [php.net - Retornando Valores](http://php.net/manual/en/functions.returning-values.php)
+
+## Valor de Argumento Padrão
+
+```php
+<?php
+function makecoffee($type = "cappuccino") {
+    return "Making a cup of $type.\n";
+}
+echo makecoffee();
+echo makecoffee(null);
+echo makecoffee("espresso");
+?>
+```
+A saída para o trecho de código acima será:
+```
+Making a cup of cappuccino.
+Making a cup of .
+Making a cup of espresso.
+```
+**Exemplo - Uso incorreto do argumento padrão**
+```php
+<?php
+function makeyogurt($type = "acidophilus", $flavour) {
+  return "Making a bowl of $type $flavour.\n";
+}
+
+echo makeyogurt("raspberry");   // won't work as expected
+?>
+```
+O código acima retornará uma mensagem de error:
+```
+Warning: Missing argument 2 in call to makeyogurt() in
+/usr/local/etc/httpd/htdocs/phptest/functest.html on line 41
+Making a bowl of raspberry .
+```
+
+**Exemplo - Uso correto do argumento padrão**
+```php
+<?php
+function makeyogurt($flavour, $type = "acidophilus") {
+  return "Making a bowl of $type $flavour.\n";
+}
+
+echo makeyogurt("raspberry");   // works as expected
+?>
+```
+A resposta do código da acima será:
+```
+Making a bowl of acidophilus raspberry.
+```
+
+Leia mais:
+* [php.net - Default argument values](http://php.net/manual/en/functions.arguments.php)
 
 ## Funções Anônimas (ou Closures)
 Permite criar funções sem especificar uma nome. Elas possuem diversas utilidades, porém são mais usadas como parâmetros ```callback``` para outras funções.
