@@ -27,6 +27,7 @@ function test($esperado, $obtido)
  * Sejam dois números inteiros
  * Se ambos forem diferentes entre si, retorna apenas a sua soma,
  * caso contrario, retorna o dobro da sua soma
+ *
  * @param int $a
  * @param int $b
  * @return int
@@ -34,7 +35,7 @@ function test($esperado, $obtido)
 
 function somaDobro($a, $b)
 {
-	return $a === $b ? ($a + $b)*2 : ($a + $b);
+
 }
 
 /**
@@ -51,7 +52,7 @@ function somaDobro($a, $b)
 
 function papagaio($falando, $hora)
 {
-	return ($falando && ($hora < 7 || $hora > 20)) ? true : false;
+
 }
 
 /**
@@ -68,7 +69,79 @@ function papagaio($falando, $hora)
 
 function problemaAlunos($a_sorri, $b_sorri)
 {
-	return (($a_sorri && $b_sorri) || (!$a_sorri && !$b_sorri)) ? true : false;
+
+}
+
+/**
+ * @tutorial
+ * 4. Dormir:
+ * $dia_semana é true para dias úteis
+ * $feriado é true nos feriados
+ * Você pode ficar dormindo quando é feriado ou não é dia útil
+ * Retorna true ou false conforme você vá dormir ou não
+ * @param boolean $dia_semana
+ * @param boolean $feriado
+ * @return boolean
+ */
+
+function dormir($dia_semana, $feriado)
+{
+
+}
+
+/**
+ * @tutorial
+ * 5. Diff21:
+ * Dado um inteiro $n, retorna a diferença absoluta entre $n e 21
+ * Porém, se $n for maior que 21, retorna o dobro da diferença absoluta
+ * diff(19) -> 2
+ * diff(21) -> 8
+ * Dica: abs($n) retorna o valor absoluto de $n (http://php.net/manual/pt_BR/function.abs.php)
+ * @param int $n
+ * @return int
+ */
+
+function diff21($n)
+{
+
+}
+
+/**
+ * @tutorial
+ * 6. Inverte:
+ * Seja uma string $s
+ * Se $s tiver tamanho menor que 1, retorna ela mesma
+ * caso contrário, $s é invertida
+ * inverte('code') -> 'edoc'
+ * inverte('a') -> 'a'
+ * inverte('ab') -> 'ba'
+ * Dica 1: strlen($s) retorna o tamanho da string (http://php.net/manual/pt_BR/function.strlen.php)
+ * Dica 2: strrev($s) retorna a string invertida (http://php.net/manual/pt_BR/function.strrev.php)
+ * @param string $s
+ * @return string
+ */
+
+function inverte($s)
+{
+
+}
+
+/**
+ * @tutorial
+ * 7. Apaga:
+ * Seja uma string $s e um inteiro $n
+ * Retorna uma nova string sem a posição $n
+ * apaga('code', 2) -> 'coe'
+ * apaga('code', 0) -> 'ode'
+ * Dica 1: substr_replace() permite substituir caracteres de uma string (http://php.net/manual/pt_BR/function.substr-replace.php)
+ * @param string $s
+ * @param int $n
+ * @return string
+ */
+
+function apaga($s, $n)
+{
+
 }
 
 echo '1. Soma Dobro:' . PHP_EOL;
@@ -92,3 +165,35 @@ test(problemaAlunos(true, true), true);
 test(problemaAlunos(true, false), false);
 test(problemaAlunos(false, true), false);
 test(problemaAlunos(false, false), true);
+
+echo PHP_EOL . PHP_EOL;
+
+echo '4. Dormir:' . PHP_EOL;
+test(dormir(true, true), true);
+test(dormir(true, false), false);
+test(dormir(false, true), true);
+test(dormir(false, false), true);
+
+echo PHP_EOL . PHP_EOL;
+
+echo '5. Diff21:' . PHP_EOL;
+test(diff21(19), 2);
+test(diff21(25), 8);
+test(diff21(10), 11);
+test(diff21(31), 20);
+
+echo PHP_EOL . PHP_EOL;
+
+echo '5. Inverte:' . PHP_EOL;
+test(inverte('code'), 'edoc');
+test(inverte('b'), 'b');
+test(inverte('php'), 'php');
+test(inverte('inverte'), 'etrevni');
+
+echo PHP_EOL . PHP_EOL;
+
+echo '5. Apaga:' . PHP_EOL;
+test(apaga('code', 1), 'cde');
+test(apaga('curso', -1), 'curs');
+test(apaga('php', 2), 'ph');
+test(apaga('apaga', 4), 'apag');
