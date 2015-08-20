@@ -151,6 +151,39 @@ function apaga($s, $n)
 
 }
 
+/**
+ * @tutorial
+ * 8. Dez:
+ * Dados dois inteiros $a e $b
+ * Retorna true se um dos dois é 10 ou se a soma de ambos é 10
+ * @param int $a
+ * @param int $b
+ * @return boolean
+ */
+
+function dez($a, $b)
+{
+
+}
+
+/**
+ * @tutorial
+ * 9. Dista10:
+ * Dados um inteiro $n
+ * Retorna true se a diferença absoluta entre $n e 100 ou $n e 200
+ * for menor ou igual a 10
+ * dista10(93) -> true
+ * dista10(101) -> true
+ * dista10(142) -> false
+ * @param int $n
+ * @return boolean
+ */
+
+function dista10($n)
+{
+
+}
+
 echo '1. Soma Dobro:' . PHP_EOL;
 test(somaDobro(1, 2), 3);
 test(somaDobro(2, 2), 8);
@@ -204,3 +237,19 @@ test(apaga('code', 1), 'cde');
 test(apaga('curso', -1), 'curs');
 test(apaga('php', 2), 'ph');
 test(apaga('apaga', 4), 'apag');
+
+echo PHP_EOL . PHP_EOL;
+
+echo '8. Dez:' . PHP_EOL;
+test(dez(10, 10), true);
+test(dez(10, 3), true);
+test(dez(1, 2), false);
+test(dez(3, 7), true);
+
+echo PHP_EOL . PHP_EOL;
+
+echo '9. Dista10:' . PHP_EOL;
+test(dista10(93), true);
+test(dista10(110), true);
+test(dista10(142), false);
+test(dista10(205), true);
