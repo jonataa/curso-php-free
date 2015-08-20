@@ -1107,6 +1107,7 @@ Leia mais:
 * [php.net - Retornando Valores](http://php.net/manual/en/functions.returning-values.php)
 
 ## Valor de Argumento Padrão
+PHP permite que você especifique um valor padrão para os argumentos das funções, tornando-os opcionais.
 
 ```php
 <?php
