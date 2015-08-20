@@ -191,7 +191,7 @@ test(diff21(31), 20);
 
 echo PHP_EOL . PHP_EOL;
 
-echo '5. Inverte:' . PHP_EOL;
+echo '6. Inverte:' . PHP_EOL;
 test(inverte('code'), 'edoc');
 test(inverte('b'), 'b');
 test(inverte('php'), 'php');
@@ -199,7 +199,7 @@ test(inverte('inverte'), 'etrevni');
 
 echo PHP_EOL . PHP_EOL;
 
-echo '5. Apaga:' . PHP_EOL;
+echo '7. Apaga:' . PHP_EOL;
 test(apaga('code', 1), 'cde');
 test(apaga('curso', -1), 'curs');
 test(apaga('php', 2), 'ph');
