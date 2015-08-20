@@ -1107,6 +1107,57 @@ Leia mais:
 * [php.net - Funções definidas pelo usuário](http://php.net/manual/pt_BR/functions.user-defined.php)
 * [php.net - Retornando Valores](http://php.net/manual/en/functions.returning-values.php)
 
+## Funções Anônimas (ou Closures)
+Permite criar funções sem especificar uma nome. Elas possuem diversas utilidades, porém são mais usadas como parâmetros ```callback``` para outras funções.
+
+**Exemplo - Função Anônima**
+```php
+<?php
+echo preg_replace_callback('~-([a-z])~', function ($match) {
+  return strtoupper($match[1]);
+}, 'hello-world');
+
+// outputs helloWorld
+?>
+```
+
+**Exemplo - Atribuindo uma função à uma variável**
+```php
+<?php
+$greet = function($name) {
+  printf("Hello %s\r\n", $name);
+};
+
+$greet('World');
+$greet('PHP');
+?>
+```
+
+Você também pode incluir variáveis que estão fora do atual scopo da função. Para isso, utiliza-se a palavra ```use```, conforme exemplo abaixo:
+
+```php
+<?php
+
+$mensagem = 'hello';
+
+// Sem "use"
+$exemplo = function () {
+    var_dump($mensagem); // NULL
+};
+echo $exemplo();
+
+// Com "use"
+$exemplo = function () use ($mensagem) {
+    var_dump($mensagem); // string(5) "hello"
+};
+echo $exemplo();
+
+?>
+```
+
+Leia mais:
+* [php.net - Funções Anônimas](http://php.net/manual/pt_BR/functions.anonymous.php)
+
 ## Sintaxe Alternativa para estruturas de controle
 O PHP oferece uma sintaxe alternativa para algumas estruturas de controle; a saber, ```if```, ```while```, ```for```, ```foreach```, e ```switch```. Em cada caso, basicamente a sintaxe alternativa é trocar a chave de abertura por dois pontos (:) e a chave de fechamento por ```endif;```, ```endwhile;```, ```endfor;```, ```endforeach;```, ou ```endswitch;```, respectivamente.
 
