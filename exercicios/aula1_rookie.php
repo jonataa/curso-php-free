@@ -13,12 +13,19 @@ define('FALHOU', 'Nao foi dessa vez! Obtido: %s / Esperado: %s');
  */
 function test($esperado, $obtido)
 {
-	if(is_bool($esperado))
+	if (is_bool($esperado))
 		$esperado = $esperado ? 'true' : 'false';
-	if(is_bool($obtido))
+
+	if (is_bool($obtido))
 		$obtido = $obtido ? 'true' : 'false';
 
-	echo $obtido === $esperado ? SUCESSO . PHP_EOL : sprintf(FALHOU, $obtido, $esperado) . PHP_EOL;
+	$esperado = is_null($esperado) ? 'NULL' : $esperado;
+
+	echo $obtido === $esperado ?
+			 SUCESSO :
+			 sprintf(FALHOU, $obtido, $esperado);
+
+	echo PHP_EOL;
 }
 
 /**
