@@ -1023,6 +1023,22 @@ switch ($i) {
 Leia mais:
 * [php.net - Switch](http://php.net/manual/pt_BR/control-structures.switch.php)
 
+## Operador Ternário
+Outro operador condicional é o operador "?:" (ou ternário). A expressão ```(expr1) ? (expr2) : (expr3)``` é avaliada para expr2 se expr1 é avaliada como TRUE, ou expr3 se expr1 é avaliada como FALSE.
+
+```php
+<?php
+$idade = 21;
+echo $idade >= 18 ? 'É maior de idade' : 'É menor de idade';
+
+// outputs 'É maior de idade'
+?>
+```
+> Se o valor da primeira expressão é "TRUE" (non-zero), então, ele retorna o valor da segunda expressão. Caso a primeira expressão seja "FALSE", então, ele retornará o valor da terceira expressão.
+
+Leia mais:
+[php.net - Operador Ternário](http://php.net/manual/pt_BR/language.operators.comparison.php#language.operators.comparison.ternary)
+
 ## Include / Require
 A instrução ```include``` inclui e avalia um arquivo específico.
 
