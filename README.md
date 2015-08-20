@@ -1152,7 +1152,7 @@ function makeyogurt($flavour, $type = "acidophilus") {
 echo makeyogurt("raspberry");   // works as expected
 ?>
 ```
-A resposta do código da acima será:
+A resposta do trecho de código acima será:
 ```
 Making a bowl of acidophilus raspberry.
 ```
