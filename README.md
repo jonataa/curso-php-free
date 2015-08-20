@@ -1,5 +1,5 @@
 > # Work In Progress
-> ## Pull Requests são sempre bem vindos!
+> ## Pull Requests serão sempre bem vindos!
 
 # Curso PHP: Começando do jeito certo!
 Guia de estudo do curso gratuito de PHP organizado em parceria com a Universidade Salvador.
@@ -1051,7 +1051,7 @@ Arquivos são incluidos baseado no caminho do arquivo fornecido ou, se não for 
 <?php
 $texto = 'Trabalhando com Include no PHP';
 
-function dobrar($numero) 
+function dobrar($numero)
 {
   return $numero * 2;
 }
