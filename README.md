@@ -1051,7 +1051,8 @@ Arquivos são incluidos baseado no caminho do arquivo fornecido ou, se não for 
 <?php
 $texto = 'Trabalhando com Include no PHP';
 
-function dobrar($numero) {
+function dobrar($numero) 
+{
   return $numero * 2;
 }
 ```
@@ -1075,7 +1076,8 @@ Uma função pode ser definida usando a seguinte sintaxe:
 ```php
 <?php
 
-function foo ($arg_1, $arg_2, /* ..., */ $arg_n) {
+function foo ($arg_1, $arg_2, /* ..., */ $arg_n)
+{
   echo "Exemplo de função.\n";
   return $valor_retornado;
 }
@@ -1089,7 +1091,8 @@ Valores serão retornados se estiver usando a palavra ```return```. É possível
 **Exemplo - Retornando Valores**
 ```php
 <?php
-function square($num) {
+function square($num)
+{
   return $num * $num;
 }
 echo square(4);   // outputs '16'.
@@ -1099,7 +1102,8 @@ echo square(4);   // outputs '16'.
 **Exemplo - Retornando Valores e Obtendo Multiplos Valores**
 ```php
 <?php
-function numeros_pequenos() {
+function numeros_pequenos()
+{
   return array (0, 1, 2);
 }
 list ($zero, $um, $dois) = numeros_pequenos();
@@ -1110,7 +1114,8 @@ list ($zero, $um, $dois) = numeros_pequenos();
 No PHP 7, será possível definir o tipo do valor retornado da função (como o exemplo abaixo). Veja essa e outras features do PHP 7 [nessa página](http://php.net/manual/en/migration70.new-features.php).
 ```php
 <?php
-function sum($a, $b): float {
+function sum($a, $b): float
+{
   return $a + $b;
 }
 
@@ -1127,7 +1132,8 @@ PHP permite que você especifique um valor padrão para os argumentos das funç�
 
 ```php
 <?php
-function makecoffee($type = "cappuccino") {
+function makecoffee($type = "cappuccino")
+{
     return "Making a cup of $type.\n";
 }
 echo makecoffee();
@@ -1144,7 +1150,8 @@ Making a cup of espresso.
 **Exemplo - Uso incorreto do argumento padrão**
 ```php
 <?php
-function makeyogurt($type = "acidophilus", $flavour) {
+function makeyogurt($type = "acidophilus", $flavour)
+{
   return "Making a bowl of $type $flavour.\n";
 }
 
@@ -1161,7 +1168,8 @@ Making a bowl of raspberry .
 **Exemplo - Uso correto do argumento padrão**
 ```php
 <?php
-function makeyogurt($flavour, $type = "acidophilus") {
+function makeyogurt($flavour, $type = "acidophilus")
+{
   return "Making a bowl of $type $flavour.\n";
 }
 
