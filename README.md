@@ -1067,8 +1067,45 @@ function foo ($arg_1, $arg_2, /* ..., */ $arg_n) {
 ?>
 ```
 
+Valores serão retornados se estiver usando a palavra ```return```. É possível retornar valores de qualquer tipo, incluindo Arrays e Objetos.
+> IMPORTANTE: Se não utilizar o ```return```, um valor **NULL** será retornado.
+
+**Exemplo - Retornando Valores**
+```php
+<?php
+function square($num) {
+  return $num * $num;
+}
+echo square(4);   // outputs '16'.
+?>
+```
+
+**Exemplo - Retornando Valores e Obtendo Multiplos Valores**
+```php
+<?php
+function numeros_pequenos()
+{
+  return array (0, 1, 2);
+}
+list ($zero, $um, $dois) = numeros_pequenos();
+?>
+```
+> Veja a documentação da função [list()](http://php.net/manual/pt_BR/function.list.php).
+
+No PHP 7, será possível definir o tipo do valor retornado da função (como o exemplo abaixo). Veja essa e outras features do PHP 7 [nessa página](http://php.net/manual/en/migration70.new-features.php).
+```php
+<?php
+function sum($a, $b): float {
+  return $a + $b;
+}
+
+var_dump(sum(1, 2)); // outputs 'float(3)'
+?>
+```
+
 Leia mais:
 * [php.net - Funções definidas pelo usuário](http://php.net/manual/pt_BR/functions.user-defined.php)
+* [php.net - Retornando Valores](http://php.net/manual/en/functions.returning-values.php)
 
 ## Sintaxe Alternativa para estruturas de controle
 O PHP oferece uma sintaxe alternativa para algumas estruturas de controle; a saber, ```if```, ```while```, ```for```, ```foreach```, e ```switch```. Em cada caso, basicamente a sintaxe alternativa é trocar a chave de abertura por dois pontos (:) e a chave de fechamento por ```endif;```, ```endwhile;```, ```endfor;```, ```endforeach;```, ou ```endswitch;```, respectivamente.
@@ -1091,6 +1128,15 @@ elseif ($a == 6):
 else:
     echo "a is neither 5 nor 6";
 endif;
+?>
+```
+
+**Exemplo - Sintaxe Alternativa Foreach**
+```php
+<?php
+foreach (range(0, 100) as $i => $number):
+  echo $number, PHP_EOL;
+endforeach;
 ?>
 ```
 
