@@ -11,14 +11,14 @@ define('FALHOU', 'Nao foi dessa vez! Obtido: %s / Esperado: %s');
  * @param mixed $obtido Resultado Obtido
  * @return string Mensagem de sucesso ou de falha
  */
-function asserting($esperado, $obtido)
+function test($esperado, $obtido)
 {
 	if(is_bool($esperado))
 		$esperado = $esperado ? 'true' : 'false';
 	if(is_bool($obtido))
 		$obtido = $obtido ? 'true' : 'false';
 
-	return $obtido === $esperado ? SUCESSO : sprintf(FALHOU, $obtido, $esperado);
+	echo $obtido === $esperado ? SUCESSO . PHP_EOL : sprintf(FALHOU, $obtido, $esperado) . PHP_EOL;
 }
 
 /**
@@ -72,33 +72,23 @@ function problemaAlunos($a_sorri, $b_sorri)
 }
 
 echo '1. Soma Dobro:' . PHP_EOL;
-echo asserting(somaDobro(1, 2), 3);
-echo PHP_EOL;
-echo asserting(somaDobro(2, 2), 8);
-echo PHP_EOL;
-echo asserting(somaDobro(2, 1), 3);
-echo PHP_EOL;
-echo asserting(somaDobro(3, 3), 12);
+test(somaDobro(1, 2), 3);
+test(somaDobro(2, 2), 8);
+test(somaDobro(2, 1), 3);
+test(somaDobro(3, 3), 12);
 
 echo PHP_EOL . PHP_EOL;
 
 echo '2. Papagaio:' . PHP_EOL;
-echo asserting(papagaio(true, 6), true);
-echo PHP_EOL;
-echo asserting(papagaio(true, 10), false);
-echo PHP_EOL;
-echo asserting(papagaio(false, 19), false);
-echo PHP_EOL;
-echo asserting(papagaio(true, 21), true);
+test(papagaio(true, 6), true);
+test(papagaio(true, 10), false);
+test(papagaio(false, 19), false);
+test(papagaio(true, 21), true);
 
 echo PHP_EOL . PHP_EOL;
 
 echo '3. Problema Alunos:' . PHP_EOL;
-echo asserting(problemaAlunos(true, true), true);
-echo PHP_EOL;
-echo asserting(problemaAlunos(true, false), false);
-echo PHP_EOL;
-echo asserting(problemaAlunos(false, true), false);
-echo PHP_EOL;
-echo asserting(problemaAlunos(false, false), true);
-echo PHP_EOL;
+test(problemaAlunos(true, true), true);
+test(problemaAlunos(true, false), false);
+test(problemaAlunos(false, true), false);
+test(problemaAlunos(false, false), true);
