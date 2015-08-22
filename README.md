@@ -24,6 +24,9 @@ A fim de alcançar tais objetivos, torna-se necessário identificar os objetivos
 ## Local
 Rua Rio Tinto, 152, Santa Mônica, Feira de Santana - Ba. CEP 44050-250.
 
+## Slides
+* [Curso PHP 2015](https://docs.google.com/presentation/d/1OfMrN9vbRI84ZZba7MlyWQWmG0aBz1Nt9Wv2_yQQEnc/edit?usp=sharing)
+
 ## Data e Horário
 - Início: 22/08/2015
 - Término: 10/10/2015 (previsto)
@@ -49,7 +52,7 @@ PHP Básico
 * Tipos Primitivos / Variáveis
 * Operadores de Comparação
 * Argumentos Condicionais
-* Switch / For / Foreach
+* Switch / For / Foreaoch
 * Trabalhando com Strings
 * Operador Ternário
 * Arrays
