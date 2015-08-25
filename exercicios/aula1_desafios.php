@@ -53,12 +53,13 @@ function buracosLetras($texto)
  * 1. Pedra empata com Pedra e ganha de Tesoura
  * 2. Tesoura empata com Tesoura e ganha de Papel
  * 3. Papel empata com Papel e ganha de Pedra
+ *
  * @param string $escolha_player1
  * @param string $escolha_player2
  * @return string qual item ganhou ou empate
  */
-
-function jokenpo($escolha_player1, $escolha_player2){
+function jokenpo($escolha_player1, $escolha_player2)
+{
 
 }
 
