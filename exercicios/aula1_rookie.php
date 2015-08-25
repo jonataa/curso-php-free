@@ -7,8 +7,8 @@ define('FALHOU', 'Nao foi dessa vez! Obtido: %s / Esperado: %s');
 
 /**
  * @access public
- * @param mixed $esperado Resultado esperado
  * @param mixed $obtido Resultado Obtido
+ * @param mixed $esperado Resultado Esperado
  * @return string Mensagem de sucesso ou de falha
  */
 function test($obtido, $esperado)

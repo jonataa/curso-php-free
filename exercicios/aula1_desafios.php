@@ -5,18 +5,25 @@ define('FALHOU', 'Nao foi dessa vez! Obtido: %s / Esperado: %s');
 
 /**
  * @access public
- * @param mixed $esperado Resultado esperado
  * @param mixed $obtido Resultado Obtido
+ * @param mixed $esperado Resultado Esperado
  * @return string Mensagem de sucesso ou de falha
  */
-function test($esperado, $obtido)
+function test($obtido, $esperado)
 {
-	if(is_bool($esperado))
+	if (is_bool($esperado))
 		$esperado = $esperado ? 'true' : 'false';
-	if(is_bool($obtido))
+
+	if (is_bool($obtido))
 		$obtido = $obtido ? 'true' : 'false';
 
-	echo $obtido === $esperado ? SUCESSO . PHP_EOL : sprintf(FALHOU, $obtido, $esperado) . PHP_EOL;
+	$obtido = is_null($obtido) ? 'NULL' : $obtido;
+
+	echo $obtido === $esperado ?
+			 SUCESSO :
+			 sprintf(FALHOU, $obtido, $esperado);
+
+	echo PHP_EOL;
 }
 
 /**
