@@ -46,7 +46,7 @@ function buracosLetras($texto)
 
 /**
  * @tutorial
- * 2. Jokepo:
+ * 2. Jokenpo:
  * Jokenpo é uma brincadeira japonesa, onde dois jogadores escolhem um dentre três possíveis itens: Pedra, Papel ou Tesoura.
  * O objetivo é fazer um juiz de Jokenpo que dada a jogada dos dois jogadores informa o resultado da partida.
  * As regras são as seguintes:
@@ -58,7 +58,7 @@ function buracosLetras($texto)
  * @return string qual item ganhou ou empate
  */
 
-function jokepo($escolha_player1, $escolha_player2){
+function jokenpo($escolha_player1, $escolha_player2){
 
 }
 
@@ -71,10 +71,13 @@ test(buracosLetras('CURSO DE PHP'), 5);
 
 echo PHP_EOL . PHP_EOL;
 
-echo '2. Jokepo:' . PHP_EOL;
-test(jokepo('pedra', 'pedra'), 'empate');
-test(jokepo('pedra', 'tesoura'), 'pedra');
-test(jokepo('pedra', 'papel'), 'papel');
-test(jokepo('tesoura', 'tesoura'), 'empate');
-test(jokepo('tesoura', 'papel'), 'tesoura');
-test(jokepo('papel', 'papel'), 'empate');
+echo '2. Jokenpo:' . PHP_EOL;
+test(jokenpo('pedra', 'pedra'), 'empate');
+test(jokenpo('pedra', 'tesoura'), 'pedra');
+test(jokenpo('pedra', 'papel'), 'papel');
+test(jokenpo('tesoura', 'tesoura'), 'empate');
+test(jokenpo('tesoura', 'pedra'), 'pedra');
+test(jokenpo('tesoura', 'papel'), 'tesoura');
+test(jokenpo('papel', 'papel'), 'empate');
+test(jokenpo('papel', 'tesoura'), 'tesoura');
+test(jokenpo('papel', 'pedra'), 'papel');
