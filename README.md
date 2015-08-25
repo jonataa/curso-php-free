@@ -24,9 +24,6 @@ A fim de alcançar tais objetivos, torna-se necessário identificar os objetivos
 ## Local
 Rua Rio Tinto, 152, Santa Mônica, Feira de Santana - Ba. CEP 44050-250.
 
-## Slides
-* [Curso PHP 2015](https://docs.google.com/presentation/d/1OfMrN9vbRI84ZZba7MlyWQWmG0aBz1Nt9Wv2_yQQEnc/edit?usp=sharing)
-
 ## Data e Horário
 - Início: 22/08/2015
 - Término: 10/10/2015 (previsto)
@@ -52,7 +49,7 @@ PHP Básico
 * Tipos Primitivos / Variáveis
 * Operadores de Comparação
 * Argumentos Condicionais
-* Switch / For / Foreaoch
+* Switch / For / Foreach
 * Trabalhando com Strings
 * Operador Ternário
 * Arrays
@@ -603,9 +600,9 @@ Isto é feito apenas assimilando valores para o array enquanto especificando a c
 ```
 $arr[chave] = valor;
 $arr[] = valor;
-// chave tanto um [integer](http://php.net/manual/pt_BR/language.types.integer.php) ou [string](http://php.net/manual/pt_BR/language.types.string.php)
-// valor pode ser qualquer coisa
 ```
+> chave tanto um [integer](http://php.net/manual/pt_BR/language.types.integer.php) ou [string](http://php.net/manual/pt_BR/language.types.string.php)
+> valor pode ser qualquer coisa
 
 ```php
 <?php
@@ -737,14 +734,14 @@ Leia mais:
 
 ## Operadores Lógicos
 
-Exemplo   |	Nome  | Resultado
---------- | ----- | ---------
-$a and $b	| E	    | Verdadeiro (**TRUE**) se tanto $a quanto $b são verdadeiros.
-$a or $b	| OU    |	Verdadeiro se $a ou $b são verdadeiros.
-$a xor $b |	XOR   |	Verdadeiro se $a ou $b são verdadeiros, mas não ambos.
-! $a	    | NÃO	  | Verdadeiro se $a não é verdadeiro.
-$a && $b	| E	    | Verdadeiro se tanto $a quanto $b são verdadeiros.
-$a || $b	| OU	  | Verdadeiro se $a ou $b são verdadeiros.
+Exemplo     |	Nome  | Resultado
+----------- | ----- | ---------
+$a and $b	  | E	    | Verdadeiro (**TRUE**) se tanto $a quanto $b são verdadeiros.
+$a or $b	  | OU    |	Verdadeiro se $a ou $b são verdadeiros.
+$a xor $b   |	XOR   |	Verdadeiro se $a ou $b são verdadeiros, mas não ambos.
+! $a	      | NÃO	  | Verdadeiro se $a não é verdadeiro.
+$a && $b	  | E	    | Verdadeiro se tanto $a quanto $b são verdadeiros.
+$a \|\| $b	| OU	  | Verdadeiro se $a ou $b são verdadeiros.
 
 Leia mais:
 * [php.net - Operadores Lógicos](http://php.net/manual/pt_BR/language.operators.logical.php)
@@ -953,7 +950,7 @@ Nome: Celular Moto X, Preço: 820.5
 **Exemplo - Interando um MapList 2**
 ```php
 <?php
-$pessoa = ['nome' => João, 'idade' => 25];
+$pessoa = ['nome' => 'João', 'idade' => 25];
 foreach ($pessoa as $campo => $valor)
   echo "{$campo}: {$valor}" . PHP_EOL;
 
