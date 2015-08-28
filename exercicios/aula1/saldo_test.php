@@ -1,5 +1,8 @@
 <?php
 
+/**
+* Calcular o saldo final de cada extrato.
+*/
 require __DIR__ . '/../test.php';
 require 'saldo.php';
 
