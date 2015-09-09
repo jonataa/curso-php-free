@@ -1313,5 +1313,70 @@ Leia mais:
 * http://php.net/manual/en/language.basic-syntax.instruction-separation.php
 * http://php.net/manual/en/language.basic-syntax.phpmode.php
 
+# Orientação a Objetos
+
+## Classe
+
+Toda definição de classe começa com a palavra-chave ```class```, seguido por um nome da classe, que pode ser qualquer nome que não seja uma palavra reservada no PHP, seguido por um par de chaves, que contém a definição dos membros e métodos da classe. Uma pseudo variável, ```$this```, está disponível quando um método é chamado dentro de um contexto de objeto. ```$this``` é uma referência para o objeto chamador do método (normalmente o objeto ao qual o método pertence). Isso é ilustrado no exemplo a seguir:
+
+```php
+<?php
+
+class NomeDaClasse
+{
+
+  public $atributoPublico = 'Público';
+  protected $atributoProtegido = 'Protegido';
+  private $atributoPrivado = 'Privado';
+
+  public function metodoQualquer()
+  {
+    echo $this->atributoPublico;
+    echo $this->atributoProtegido;
+    echo $this->atributoPrivado;
+  }
+
+}
+
+$instancia = new MinhaClasse();
+echo $instancia->atributoPublico; // OK
+echo $instancia->atributoProtegido; // Fatal Error
+echo $instancia->atributoPrivado; // Fatal Error
+$instancia->metodoQualquer(); // PúblicoProtegidoPrivado
+
+?>
+```
+
+<?php
+
+class Pessoa
+{
+
+  private $nome;
+  private $sobrenome;
+
+  public function __construct($nome, $sobrenome)
+  {
+    $this->nome = $nome;
+    $this->sobrenome = $sobrenome;    
+  }
+
+  public function getNomeCompleto()
+  {
+    return $this->nome . ' ' . $this->sobrenome;
+  }
+
+  public function __destruct()
+  {
+    echo 'Destrutor...';
+  }
+
+}
+
+$joao = new Pessoa('João', 'da Silva');
+echo $joao->getNomeCompleto(); // João da Silva
+
+?>
+
 ## Referências
 [php.net - Site oficial do PHP](php.net)
