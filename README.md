@@ -1416,6 +1416,8 @@ $instancia->metodoQualquer(); // PúblicoProtegidoPrivado
 
 ?>
 ```
+Leia mais:
+* [php.net - Visibilidade](http://php.net/manual/pt_BR/language.oop5.visibility.php)
 
 ## Método Estático
 O PHP também permite que você acesse os métodos estáticamente (sem utilizar o ```new```). Só precisa adicionar a palava chave ```static``` no assinatura do método, conforme ilustrado a seguir:
@@ -1538,8 +1540,20 @@ class Filho extends Pai
 }
 ```
 
-## Namespaces
+## Constantes de Objeto
+É possível definir constantes em cada classe como um atributo imutável. A diferença com as variáveis está no não uso do símbolo ```$```.
 
+> O valor deve ser uma expressão constante, não podendo ser (por exemplo) uma variável, um membro de uma classe, o resultado de uma operação matemática, ou uma chamada de função.
+
+É possível também interfaces terem constantes. Veja na [documentação de interface](http://php.net/manual/pt_BR/language.oop5.interfaces.php) os exemplos.
+
+Leia mais:
+* [php.net - Contantes de Objeto](http://php.net/manual/pt_BR/language.oop5.constants.php)
+
+
+
+## Namespaces
+Em breve...
 
 ## Referências
 [php.net - Site oficial do PHP](php.net)
