@@ -1344,7 +1344,6 @@ object(stdClass)#2 (2) {
 ```
 
 ## Classe
-
 Toda definição de classe começa com a palavra-chave ```class```, seguido por um nome da classe, que pode ser qualquer nome que não seja uma palavra reservada no PHP, seguido por um par de chaves, que contém a definição dos membros e métodos da classe. Uma pseudo variável, ```$this```, está disponível quando um método é chamado dentro de um contexto de objeto. ```$this``` é uma referência para o objeto chamador do método (normalmente o objeto ao qual o método pertence). Isso é ilustrado no exemplo a seguir:
 
 **Exemplo: Classe no PHP**
@@ -1382,6 +1381,9 @@ unset($joao); // Destruindo...
 ?>
 ```
 > Utiliza-se o operador de objeto ```->``` para acessar os atributos e métodos dos objetos.
+
+Leia mais:
+* [php.net - O básico](http://php.net/manual/pt_BR/language.oop5.basic.php)
 
 ### Visibilidade
 A visibilidade de uma propriedade ou método pode ser definida prefixando a declaração com as palavras-chave: 'public','protected' ou 'private'. Itens declarados como public podem ser acessados por todo mundo. Protected limita o acesso a classes herdadas (e para a classe que define o item). Private limita a visibilidade para apenas a classe que define o item.
@@ -1447,6 +1449,10 @@ $instancia = new MinhaClasse();
 $objeto->metodoNormal(); // Método normal
 $objeto->metodoEstatico(); // Método Estático
 ```
+
+Leia mais:
+* [php.net - Operador de Resolução de Escopo (::)](http://php.net/manual/pt_BR/language.oop5.paamayim-nekudotayim.php)
+* [php.net - Palavra-Chave 'static'](http://php.net/manual/pt_BR/language.oop5.static.php)
 
 ## Herança
 Em Orientação a Objetos, a classe que "extende" outra classe, herda todos os métodos e atributos da classe "pai", exceto os que tiverem o modificador de acesso "private". Em PHP, a herança de classes é feita utilizando a palavra chave ```extends``` seguido da classe "pai", conforme exemplo abaixo:
@@ -1540,6 +1546,9 @@ class Filho extends Pai
 }
 ```
 
+Leia mais:
+* [php.net - Classes Abstratas](http://php.net/manual/pt_BR/language.oop5.abstract.php)
+
 ## Constantes de Objeto
 É possível definir constantes em cada classe como um atributo imutável. A diferença com as variáveis está no não uso do símbolo ```$```.
 
@@ -1550,9 +1559,10 @@ class Filho extends Pai
 Leia mais:
 * [php.net - Contantes de Objeto](http://php.net/manual/pt_BR/language.oop5.constants.php)
 
-
-
 ## Namespaces
+Em breve...
+
+## Interfaces
 Em breve...
 
 ## Referências
