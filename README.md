@@ -1319,6 +1319,42 @@ Leia mais:
 
 Toda definição de classe começa com a palavra-chave ```class```, seguido por um nome da classe, que pode ser qualquer nome que não seja uma palavra reservada no PHP, seguido por um par de chaves, que contém a definição dos membros e métodos da classe. Uma pseudo variável, ```$this```, está disponível quando um método é chamado dentro de um contexto de objeto. ```$this``` é uma referência para o objeto chamador do método (normalmente o objeto ao qual o método pertence). Isso é ilustrado no exemplo a seguir:
 
+**Exemplo: Classe no PHP**
+```php
+<?php
+
+class Pessoa
+{
+
+  private $nome;
+  private $sobrenome;
+
+  public function __construct($nome, $sobrenome)
+  {
+    $this->nome = $nome;
+    $this->sobrenome = $sobrenome;    
+  }
+
+  public function getNomeCompleto()
+  {
+    return $this->nome . ' ' . $this->sobrenome;
+  }
+
+  public function __destruct()
+  {
+    echo 'Destruindo...';
+  }
+
+}
+
+$joao = new Pessoa('João', 'da Silva');
+echo $joao->getNomeCompleto(); // João da Silva
+unset($joao); // Destruindo...
+
+?>
+```
+
+**Exemplo: Classe e os modificadores de acesso**
 ```php
 <?php
 
@@ -1347,36 +1383,126 @@ $instancia->metodoQualquer(); // PúblicoProtegidoPrivado
 ?>
 ```
 
+## Método Estático
+O PHP também permite que você acesse os métodos estáticamente (sem utilizar o ```new```). Só precisa adicionar a palava chave ```static``` no assinatura do método, conforme ilustrado a seguir:
+
+```php
 <?php
 
-class Pessoa
+class MinhaClasse
 {
 
-  private $nome;
-  private $sobrenome;
-
-  public function __construct($nome, $sobrenome)
+  public function metodoNormal()
   {
-    $this->nome = $nome;
-    $this->sobrenome = $sobrenome;    
+    echo 'Método normal';
   }
 
-  public function getNomeCompleto()
+  public static function metodoEstatico()
   {
-    return $this->nome . ' ' . $this->sobrenome;
-  }
-
-  public function __destruct()
-  {
-    echo 'Destrutor...';
+    echo 'Método Estático';
   }
 
 }
 
-$joao = new Pessoa('João', 'da Silva');
-echo $joao->getNomeCompleto(); // João da Silva
+MinhaClasse::metodoNormal(); // Error
+MinhaClasse::metodoEstático(); // Método Estático
 
-?>
+$instancia = new MinhaClasse();
+$objeto->metodoNormal(); // Método normal
+$objeto->metodoEstatico(); // Método Estático
+```
+
+## Herança
+Em Orientação a Objetos, a classe que "extende" outra classe, herda todos os métodos e atributos da classe "pai", exceto os que tiverem o modificador de acesso "private". Em PHP, a herança de classes é feita utilizando a palavra chave ```extends``` seguido da classe "pai", conforme exemplo abaixo:
+
+```php
+<?php
+
+class Pai
+{
+  public $atributo = 'Atributo Qualquer';
+
+  public function hello()
+  {
+    echo 'Hello World';
+  }
+}
+
+class Filho extends Pai
+{
+  public function getAtributo()
+  {
+    return $this->atributo;
+  }
+}
+
+$filho = new Filho();
+$filho->hello(); // Hello World
+echo $filho->getAtributo(); // Atributo Qualquer
+
+$pai = new Pai();
+$pai->hello(); // Hello World
+echo $pai->getAtributo(); // Error
+
+```
+
+## Classe Abstrata
+Para definir uma classe como abstrata, apenas utilize a palavra ```abstract``` na assinatura da classe (conforme exemplo abaixo). A única diferença entre a classe abstrata e a concreta é que não é permitido ter uma instância (palavra chave ```new```) de uma classe abstrata.
+
+**Exemplo - Classe Abstrata**
+```php
+<?php
+
+abstract class Pai
+{
+  public $atributo = 'Atributo Qualquer';
+
+  public function hello()
+  {
+    echo 'Hello World';
+  }
+}
+
+class Filho extends Pai
+{
+  public function getAtributo()
+  {
+    return $this->atributo;
+  }
+}
+
+$filho = new Filho();
+$filho->hello(); // Hello World
+echo $filho->getAtributo(); // Atributo Qualquer
+
+$pai = new Pai(); // Fatal error: Cannot instantiate abstract class Pai
+```
+
+## Método Abstrato
+É um método sem implementação, mas que obriga a classe "filho" implementá-la. A classe precisa ser abstrata se ela quiser ter pelo menos uma método abstrato. Veja a ilustração abaixo e entenda como funciona no PHP.
+
+**Exemplo - Método Abstrato**
+```php
+<?php
+
+abstract class Pai
+{
+  abstract function fooBar();
+
+  public function getAtributo()
+  {
+    return $this->atributo;
+  }
+}
+
+class Filho extends Pai
+{
+  public function fooBar()
+  {
+    echo 'É obrigatório implementar esse método!';
+  }
+}
+```
 
 ## Referências
 [php.net - Site oficial do PHP](php.net)
