@@ -1315,6 +1315,34 @@ Leia mais:
 
 # Orientação a Objetos
 
+## Objetos
+Você pode converter uma variável ```array``` para o tipo ```object``` (e vise-versa), fazendo um "casting", dessa maneira:
+
+**Exemplo - Convertendo array para object**
+```php
+<?php
+
+$lista = ['nome' => 'John Doe', 'idade' => 25];
+$objeto = (object) $lista;
+
+var_dump($lista, $objeto);
+
+/*
+array(2) {
+  ["nome"]=>
+  string(8) "John Doe"
+  ["idade"]=>
+  int(25)
+}
+object(stdClass)#2 (2) {
+  ["nome"]=>
+  string(8) "John Doe"
+  ["idade"]=>
+  int(25)
+}
+*/
+```
+
 ## Classe
 
 Toda definição de classe começa com a palavra-chave ```class```, seguido por um nome da classe, que pode ser qualquer nome que não seja uma palavra reservada no PHP, seguido por um par de chaves, que contém a definição dos membros e métodos da classe. Uma pseudo variável, ```$this```, está disponível quando um método é chamado dentro de um contexto de objeto. ```$this``` é uma referência para o objeto chamador do método (normalmente o objeto ao qual o método pertence). Isso é ilustrado no exemplo a seguir:
@@ -1353,8 +1381,14 @@ unset($joao); // Destruindo...
 
 ?>
 ```
+> Utiliza-se o operador de objeto ```->``` para acessar os atributos e métodos dos objetos.
 
-**Exemplo: Classe e os modificadores de acesso**
+### Visibilidade
+A visibilidade de uma propriedade ou método pode ser definida prefixando a declaração com as palavras-chave: 'public','protected' ou 'private'. Itens declarados como public podem ser acessados por todo mundo. Protected limita o acesso a classes herdadas (e para a classe que define o item). Private limita a visibilidade para apenas a classe que define o item.
+
+> Métodos de classe devem ser definidos com public, private, ou protected. Métodos sem qualquer declaração são definidas como public.
+
+**Exemplo: public, protected e private**
 ```php
 <?php
 
@@ -1479,7 +1513,7 @@ $pai = new Pai(); // Fatal error: Cannot instantiate abstract class Pai
 ```
 
 ## Método Abstrato
-É um método sem implementação, mas que obriga a classe "filho" implementá-la. A classe precisa ser abstrata se ela quiser ter pelo menos uma método abstrato. Veja a ilustração abaixo e entenda como funciona no PHP.
+É um método sem implementação, mas que obriga a classe "filha" a implementá-la. Importante é que a classe precisa ser abstrata se ela quiser ter pelo menos uma método abstrato. Veja a ilustração abaixo e entenda como funciona um método abstrato no PHP.
 
 **Exemplo - Método Abstrato**
 ```php
@@ -1503,6 +1537,9 @@ class Filho extends Pai
   }
 }
 ```
+
+## Namespaces
+
 
 ## Referências
 [php.net - Site oficial do PHP](php.net)
