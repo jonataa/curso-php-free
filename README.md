@@ -27,6 +27,9 @@ Rua Rio Tinto, 152, Santa Mônica, Feira de Santana - Ba. CEP 44050-250.
 ## Slides
 * [Curso PHP 2015](https://docs.google.com/presentation/d/1OfMrN9vbRI84ZZba7MlyWQWmG0aBz1Nt9Wv2_yQQEnc/edit?usp=sharing)
 
+## Submissão de Exercícios
+Crie um [gist](gist.github.com) e preencha o link no [formulário de submissão](https://docs.google.com/forms/d/1gNzLhxmH4r52_KZ8P6Zry7-aNm3LpEt7J_lc1H-U0QA/viewform).
+
 ## Data e Horário
 - Início: 22/08/2015
 - Término: 10/10/2015 (previsto)
@@ -1488,6 +1491,9 @@ echo $pai->getAtributo(); // Error
 
 ```
 
+Leia mais:
+* [php.net - Extends](http://php.net/manual/pt_BR/language.oop5.inheritance.php)
+
 ## Classe Abstrata
 Para definir uma classe como abstrata, apenas utilize a palavra ```abstract``` na assinatura da classe (conforme exemplo abaixo). A única diferença entre a classe abstrata e a concreta é que não é permitido ter uma instância (palavra chave ```new```) de uma classe abstrata.
 
@@ -1563,6 +1569,62 @@ Leia mais:
 Em breve...
 
 ## Interfaces
+Interfaces de Objetos permite a criação de código que especifica quais métodos e variáveis uma classe deve implementar, sem ter que definir como esses métodos serão tratados.
+
+Interfaces são definidas usando a palavra-chave 'interface', da mesma maneira que uma classe comum, mas sem nenhum dos métodos ter seu conteúdo definido.
+
+Todos os métodos declarados em uma interface devem ser public, essa é a natureza de uma interface.
+
+**Exemplo - Interfaces**
+```php
+<?php
+
+interface TemplateInterface
+{
+  public function setVariable()
+}
+```
+> Interfaces podem ser estendidas como classes, usando o operador [extends](http://php.net/manual/pt_BR/language.oop5.inheritance.php).
+
+### Implements
+Para implementar uma interface, o operador ~implements~ é usado. Todos os métodos na interface devem ser implementados na classe; não fazer isso resultará em um erro fatal. Classes podem implementar mais de uma interface se assim for desejado, separando cada interface com uma vírgula.
+
+```php
+<?php
+interface Motor
+{
+  public function ligar();
+}
+
+interface Volante
+{  
+  public function esquerda();
+  public function direita();
+}
+
+class Automovel implements Motor, Volante
+{
+  public function ligar()
+  {
+    /* Implementar... */
+  }
+
+  public function esquerda()
+  {
+    /* Implementar... */
+  }
+
+  public function direita()
+  {
+    /* Implementar... */
+  }
+}
+```
+
+Leia mais:
+* [php.net - Interfaces de Objetos](http://php.net/manual/pt_BR/language.oop5.interfaces.php)
+
+## Clonando Objetos
 Em breve...
 
 ## Referências
