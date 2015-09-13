@@ -36,6 +36,9 @@ Crie um [gist](gist.github.com) e preencha o link no [formulário de submissão]
 - Horário: 13h00 às 17h00 (4h/sábado)
 - Carga Horária: 30h
 
+## Visualizando os exemplos
+Levante um servidor web seguindo [esse tutorial básico](#Servidor-wen) e acesse o endereço ```http://localhost:8000/exemplos/``` no seu navegador.
+
 ## Conteúdo (WIP)
 Introdução ao PHP
 * O que é?
