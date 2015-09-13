@@ -37,7 +37,7 @@ Crie um [gist](gist.github.com) e preencha o link no [formulário de submissão]
 - Carga Horária: 30h
 
 ## Visualizando os exemplos
-Levante um servidor web seguindo [esse tutorial básico](#servidor-web) e acesse o endereço ```http://localhost:8000/exemplos/``` no seu navegador.
+Levante um servidor web seguindo [esse tutorial básico](#servidor-web) e acesse o endereço ```http://localhost:9000/exemplos/``` no seu navegador.
 
 ## Conteúdo (WIP)
 Introdução ao PHP
