@@ -1775,10 +1775,12 @@ Caso o arquivo carregado não exista ela vai retornar ```false```, caso exista r
 
 ```php
 <?php
-    function my_autoload ($pClassName) {
-        include(__DIR__ . "/" . $pClassName . ".php");
-    }
-    spl_autoload_register("my_autoload");
+
+function my_autoload ($pClassName) {
+    include(__DIR__ . "/" . $pClassName . ".php");
+}
+spl_autoload_register("my_autoload");
+
 ?>
 ```
 
