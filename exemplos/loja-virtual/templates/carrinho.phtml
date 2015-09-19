@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Carrinho de Compras</title>
+  </head>
+  <body>
+    <h1>Carrinho de Compras</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th>Qtd.</th>
+        <th>Subtotal</th>
+      </tr>
+      <?php foreach ($carrinho as $produto): ?>
+      <tr>
+        <td><?= $produto->id ?></td>
+        <td><?= $produto->nome ?></td>
+        <td><?= $produto->preco ?></td>
+        <td><input name="quantidade" type="number" /></td>
+        <td>R$ 5.000,00</td>
+      </tr>
+      <?php endforeach ?>
+      <tr>
+        <td align="right" colspan="4">TOTAL</td>
+        <td>R$ 10.000,00</td>
+      </tr>
+    </table>
+  </body>
+</html>

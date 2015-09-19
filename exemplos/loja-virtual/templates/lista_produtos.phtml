@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lista de Produtos</title>
+  </head>
+  <body>
+    <h1>Lista de Produtos</h1>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Preço</th>
+        <th></th>
+      </tr>
+      <?php foreach ($produtos as $produto): ?>
+      <tr>
+        <td><?= $produto->id ?></td>
+        <td><?= $produto->nome ?></td>
+        <td><?= $produto->preco ?></td>
+        <td><a href="/carrinho/adicionar?produto=<?= $produto->id ?>">Adicionar</a></td>
+      </tr>
+      <?php endforeach ?>
+    </table>
+  </body>
+</html>

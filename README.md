@@ -1828,6 +1828,12 @@ Leia mais:
 * [php.net - Lista de Timezones suportados](http://php.net/manual/pt_BR/timezones.php)
 * [php.net - Configurações em execução](http://php.net/manual/pt_BR/datetime.configuration.php#ini.date.timezone)
 
+## Filtrando Valores do Usuário
+
+
+Leia mais:
+* [php.net - Data Filtering](http://www.phptherightway.com/#data_filtering)
+
 ## Referências
 [php.net - Site oficial do PHP](php.net)
 [PHP The Right Way](phptherightway.com)
