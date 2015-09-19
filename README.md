@@ -327,6 +327,26 @@ Abra esse link [http://localhost:9000/helloworld.php](http://localhost:9000/exem
 
 Parabéns! Você acaba de executar seu primeiro script PHP :)
 
+## phpinfo
+> Mostra uma grande quantidade de informações sobre o estado atual do PHP. Isto inclui informações sobre as opções de compilação do PHP e extensões, a versão do PHP, informações do servidor e ambiente (se compilado como um módulo), o ambiente PHP, informação da versão do SO, caminhos, valores principais e locais das opções de configuração, cabeçalhos HTTP e a licença do PHP.
+
+**Exemplo - phpinfo()**
+```php
+<?php
+
+// Mostra todas as informações, usa o padrão INFO_ALL
+phpinfo();
+
+// Mostra apenas informações dos módulos.
+// phpinfo(8) mostra um resultado identico.
+phpinfo(INFO_MODULES);
+
+?>
+```
+
+Leia mais:
+* [php.net - phpinfo()](http://php.net/manual/pt_BR/function.phpinfo.php)
+
 # PHP Básico
 Uma vez que estamos aptos a executar os scripts PHP, tanto via CLI (Command-Line Interface) quanto via Servidor Web, a partir de agora daremos início aos estudos de sintaxe básica da linguagem PHP.
 
@@ -1569,7 +1589,58 @@ Leia mais:
 * [php.net - Contantes de Objeto](http://php.net/manual/pt_BR/language.oop5.constants.php)
 
 ## Namespaces
-Em breve...
+Por definição, ```namespaces``` é uma maneira de encapsulamento de itens. No PHP, ele resolve basicamente dois problemas quando você utiliza bibliotecas ou re-usa projetos de terceiros:
+
+1. Colisões entre nomes de classe/função/constante do seu projeto com as internas do PHP ou de terceiros.
+2. Permite que você crie um apelido curto para as classes/funções/constantes, melhorando a legibilidade do seu código.
+
+O namespace funciona para classes (incluindo abstracts e traits), interfaces, functions e contants. Utiliza-se a palavra-chave ```namespace``` dentro do arquivo antes de qualquer código PHP.
+
+**Exemplo - Sintaxe do Namespace**
+```php
+arquivo: meu-projeto/app/Escola/Publica/Funcionario.php
+<?php
+
+namespace Escola\Publica;
+
+class Funcionario
+{
+public function calcularSalario() { /* ... */ }
+}
+
+?>
+
+arquivo: meu-projeto/app/Escola/Particular/Funcionario.php
+<?php
+
+namespace Escola\Particular;
+
+class Funcionario
+{
+  public function calcularSalario() { /* ... */ }
+}
+
+?>
+
+arquivo: application.php
+<?php
+
+$funcionario = new Escola\Particular\Funcionario();
+
+// Ou dessa maneira:
+use Escola\Particular\Funcionario;
+$funcionario = new Funcionario();
+
+// Você criar um apelido curto para a classe também:
+use Escola\Particular\Funcionario as FuncParticular;
+$funcionario = new FuncParticular();
+
+?>
+```
+
+Leia mais:
+* [php.net - Namespace overview](http://php.net/manual/pt_BR/language.namespaces.rationale.php)
+* [php.net - Namespace definition](http://php.net/manual/pt_BR/language.namespaces.definition.php)
 
 ## Interfaces
 Interfaces de Objetos permite a criação de código que especifica quais métodos e variáveis uma classe deve implementar, sem ter que definir como esses métodos serão tratados.
@@ -1627,8 +1698,134 @@ class Automovel implements Motor, Volante
 Leia mais:
 * [php.net - Interfaces de Objetos](http://php.net/manual/pt_BR/language.oop5.interfaces.php)
 
-## Clonando Objetos
-Em breve...
+### Clonando Objetos
+Clona-se um objeto quando deseja ter uma cópia fiel de outro objeto, incluindo um novo endereço de memória. Para isso, utiliza-se a palavra-chave ```clone``` antes do nome do objeto, conforme exemplo abaixo:
+
+```php
+<?php
+
+class Pessoa
+{
+  public $nome;
+
+  public function __construct($nome)
+  {
+    $this->nome = $nome;
+  }  
+}
+
+$joao = new Pessoa('joao');
+
+$naoCloneJoao = $joao; // Aponta para o mesmo endereço de memória de $joao
+$cloneJoao = clone $joao;
+
+$naoCloneJoao->nome = 'Joanete';
+$cloneJoao->nome = 'Juarez';
+
+echo $joao->nome; // Joanete
+echo $naoCloneJoao->nome; // Joanete
+echo $cloneJoao->nome; // Juarez
+
+?>
+```
+
+Leia mais:
+* [php.net - Clonando objetos](http://php.net/manual/pt_BR/language.oop5.cloning.php)
+
+### Traits
+Traits são mecanismos que ajudam a reutilização de código, e servem perfeitamente para resolver o problema da falta de herança múltipla.
+
+```php
+<?php
+trait Hello
+{
+  public function ola()
+  {
+    echo "Olá";
+  }
+}
+
+class Mundo
+{
+  use Hello;
+
+  public function world()
+  {
+    echo $this->ola() . " trait!";
+  }
+}
+
+$ola = new Mundo();
+$ola->world();
+// Olá trait!
+
+```
+
+Leia mais:
+* [Blog Helio Costa - Traits em PHP. Herança Horizontal](http://hlegius.pro.br/post/traits-em-php.-heranca-horizontal.)
+* [Blog Thiago Belem - PHP 5.4 - Traits](http://blog.thiagobelem.net/php-5-4-traits/)
+* [php.net - Traits](http://php.net/traits)
+
+## Autoloading classes
+Muitos desenvolvedores ao desenvolver aplicações orientadas a objeto criam um arquivo PHP para cada definição de classe. Um dos maiores contratempos é ter de escrever uma longa lista de includes no início de cada script (um include para cada classe necessária).
+
+Para carregar o nosso autoloader vamos precisar usar a função ```spl_autoload_register()``` do PHP que irá registra uma classe e uma função na pilha de carregamento de arquivos, a documentação do PHP chama isso de "pilha de ```__autoload``` da SPL" para efeitos de nome vamos usar "pilha de arquivos". A pilha de arquivos precisa ser ativada para ser usada e a função ```spl_autoload_register()``` já faz isso por padrão, além disso se você estiver usando o ```__autoload()```, ```spl_autoload()``` ou ```spl_autoload_call()``` precisará registrar esta função com o ```spl_autoload_register()```, ele vai substituir todas as 3 que eu citei, ou seja, ao chamar o ```spl_autoload_register()``` elas param de funcionar.
+
+Caso o arquivo carregado não exista ela vai retornar ```false```, caso exista retornará ```true```.
+
+```php
+<?php
+    function my_autoload ($pClassName) {
+        include(__DIR__ . "/" . $pClassName . ".php");
+    }
+    spl_autoload_register("my_autoload");
+?>
+```
+
+Leia mais:
+* [WebDevBr - Definindo autoloader para múltiplos diretórios - Entendendo o padrão MVC na prática – Parte 03](http://www.webdevbr.com.br/blog/definindo-autoloader-para-multiplos-diretorios-entendendo-o-padrao-mvc-na-pratica-parte-03/)
+
+## php.ini
+Arquivo de configuração do PHP. Ele permite configurar [diversas diretivas](http://php.net/manual/pt_BR/ini.list.php) da sua instalação do PHP. Conheça as principais diretivas acessando esse [link](http://php.net/manual/pt_BR/ini.core.php).
+
+Para saber onde está localizado o arquivo ```php.ini``` no seu sistema operacional, digite no shell (ou no prompt de comando) o seguinte comando:
+```shell
+$ php --ini
+```
+O resultado será algo parecido com isso:
+```shell
+Configuration File (php.ini) Path: /Users/jweber/.phpbrew/php/php-5.6.13/etc
+Loaded Configuration File:         /Users/jweber/.phpbrew/php/php-5.6.13/etc/php.ini
+Scan for additional .ini files in: /Users/jweber/.phpbrew/php/php-5.6.13/var/db
+Additional .ini files parsed:      (none)
+```
+
+Leia mais:
+* [php.net - Descrição das principais diretivas do php.ini](http://php.net/manual/pt_BR/ini.core.php)
+
+## Configurando o TimeZone
+Para configurar o timezone no PHP, existe dois principais caminhos:
+
+1. Em tempo de execução via script:
+```php
+<?php
+
+date_default_timezone_set('America/Bahia');
+
+?>
+```
+
+2. Através do arquivo de configuração PHP (php.ini):
+```
+  date.timezone = America/Bahia
+```
+
+> Desde o PHP5.1.0 (quando as funções de data e tempo foram reescritas), toda chamada a esse tipo de função irá gerar um **E_NOTICE** se a timezone não é válida, e/ou uma mensagem **E_WARNING** se estiver utilizando as configurações do sistema ou a variável de ambiente ```TZ```.
+
+Leia mais:
+* [php.net - Lista de Timezones suportados](http://php.net/manual/pt_BR/timezones.php)
+* [php.net - Configurações em execução](http://php.net/manual/pt_BR/datetime.configuration.php#ini.date.timezone)
 
 ## Referências
 [php.net - Site oficial do PHP](php.net)
+[PHP The Right Way](phptherightway.com)
