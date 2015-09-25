@@ -1828,12 +1828,46 @@ Leia mais:
 * [php.net - Lista de Timezones suportados](http://php.net/manual/pt_BR/timezones.php)
 * [php.net - Configurações em execução](http://php.net/manual/pt_BR/datetime.configuration.php#ini.date.timezone)
 
-## Filtrando Valores do Usuário
+## Manipulando datas no PHP
+Trabalhar com datas no PHP é uma tarefa muito simples, a classe nativa ```DateTime``` permite fazer coisas incríveis. Veja os exemplos a seguir:
 
+**Exemplo - Criando uma data a partir de uma string**
+```php
+<?php
+$d = DateTime::createFromFormat('m. d. Y', '09. 13. 2015');
+echo $d->format('d/m/Y'); // 13/09/2015
+?>
+```
+
+**Exemplo - Adicionando e removendo intervalos**
+```php
+<?php
+$d = DateTime::createFromFormat('m. d. Y', '09. 13. 2015');
+
+// Adiciona 1 mês e 2 dias.
+echo $d->add(new DateInterval('P1M2D'))->format('d/m/Y'); // 19/12/2015
+
+// Remove 3 mêses e 25 dias.
+echo $d->sub(new DateInterval('P3M25D'))->format('d/m/Y'); // 30/04/2015
+?>
+```
+
+**Exemplo - Criando datas a partir de linguagem natural**
+```php
+<?php
+$d = (new DateTime())->modify('last day of this month');
+echo $d->format('d/m/Y'); // 30/09/2015
+```
+
+Leia mais:
+* [php.net - Classe DateTime](http://php.net/manual/en/class.datetime.php)
+
+## Filtrando Valores do Usuário
+Em breve.
 
 Leia mais:
 * [php.net - Data Filtering](http://www.phptherightway.com/#data_filtering)
 
 ## Referências
-[php.net - Site oficial do PHP](php.net)
+[php.net - Site oficial do PHP](php.net)  
 [PHP The Right Way](phptherightway.com)
