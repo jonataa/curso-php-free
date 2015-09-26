@@ -1,6 +1,6 @@
 <?php
 
-class AdicionarProduto
+class RemoverProduto
 {
   public function __construct(Session $session, $produtoId)
   {
@@ -11,7 +11,7 @@ class AdicionarProduto
   public function __invoke()
   {
     $qtd = $this->session->get($this->produtoId);
-    $this->session->attach($this->produtoId, ++$qtd);
+    $this->session->attach($this->produtoId, --$qtd);
     header('Location: /carrinho');
   }
 
