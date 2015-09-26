@@ -15,7 +15,7 @@
     <td><input
       name="quantidade"
       type="number"
-      value="1"
+      value="<?= $produto->qtd ?>"
       data-produto-id="<?= $produto->id ?>"
       data-preco-unitario="<?= $produto->preco ?>"
       onkeyup="atualizarSubTotal(this)" /></td>

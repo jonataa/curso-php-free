@@ -10,7 +10,8 @@ class AdicionarProduto
 
   public function __invoke()
   {
-    $this->session->attach($this->produtoId, 1);
+    $qtd = $this->session->get($this->produtoId);
+    $this->session->attach($this->produtoId, ++$qtd);
     header('Location: /carrinho');
   }
 

@@ -23,8 +23,8 @@ class ExibirCarrinho
 
   protected function calcularSubtotal($produto)
   {
-    $qtd = $this->session->get($produto->id);
-    $produto->subtotal = $produto->preco * $qtd;
+    $produto->qtd = $this->session->get($produto->id);
+    $produto->subtotal = $produto->preco * $produto->qtd;    
     return $produto;
   }
 
