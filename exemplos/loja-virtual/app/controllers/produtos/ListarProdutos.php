@@ -3,9 +3,17 @@
 class ListarProdutos
 {
 
-  public function __invoke($produtos)
+  public function __construct($produtos, Template $template)
   {
-    require ROOT . '/app/templates/lista_produtos.phtml';
+    $this->produtos = $produtos;
+    $this->template = $template;
+  }
+
+  public function __invoke()
+  {
+    $this->template->render('lista_produtos.phtml', [
+      'produtos' => $this->produtos
+    ], 'layout0.phtml');
   }
 
 }

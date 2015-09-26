@@ -1,32 +1,64 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Carrinho de Compras</title>
-  </head>
-  <body>
-    <h1>Carrinho de Compras</h1>
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Preço</th>
-        <th>Qtd.</th>
-        <th>Subtotal</th>
-      </tr>
-      <?php foreach ($carrinho as $produto): ?>
-      <tr>
-        <td><?= $produto->id ?></td>
-        <td><?= $produto->nome ?></td>
-        <td><?= $produto->preco ?></td>
-        <td><input name="quantidade" type="number" /></td>
-        <td>R$ 5.000,00</td>
-      </tr>
-      <?php endforeach ?>
-      <tr>
-        <td align="right" colspan="4">TOTAL</td>
-        <td>R$ 10.000,00</td>
-      </tr>
-    </table>
-  </body>
-</html>
+<h1>Carrinho de Compras</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Preço</th>
+    <th>Qtd.</th>
+    <th>Subtotal</th>
+  </tr>
+  <?php foreach ($carrinho as $produto): ?>
+  <tr>
+    <td><?= $produto->id ?></td>
+    <td><?= $produto->nome ?></td>
+    <td><?= $produto->preco ?></td>
+    <td><input
+      name="quantidade"
+      type="number"
+      value="1"
+      data-produto-id="<?= $produto->id ?>"
+      data-preco-unitario="<?= $produto->preco ?>"
+      onkeyup="atualizarSubTotal(this)" /></td>
+    <td>R$
+      <span
+        class="subtotal"
+        data-subtotal="0"
+        id="subtotal-<?= $produto->id ?>">
+      <?= $produto->subtotal ?>
+      </span>
+    </td>
+  </tr>
+  <?php endforeach ?>
+  <tr>
+    <td align="right" colspan="4">TOTAL</td>
+    <td>R$ <span id="total">0,00</span></td>
+  </tr>
+</table>
+
+<script>
+  Number.prototype.format = function(n, x) {
+    var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\,' : '$') + ')';
+    return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&.');
+  };
+
+  function atualizarSubTotal(input) {
+    var subtotal = input.dataset.precoUnitario * input.value;
+    var td = document.querySelector('#subtotal-' + input.dataset.produtoId);
+
+    td.textContent = subtotal.format(2);
+    td.dataset.subtotal = subtotal;
+
+    atualizarTotal();
+  }
+
+  function atualizarTotal() {
+    var total = 0;
+    var tds = document.querySelectorAll('.subtotal');
+    [].forEach.call(tds, function(td) {
+      total += parseFloat(td.dataset.subtotal);
+    });
+    document.querySelector('#total').textContent = total.format(2);
+  }
+
+
+</script>
