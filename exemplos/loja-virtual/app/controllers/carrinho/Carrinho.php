@@ -17,13 +17,13 @@ class Carrinho
   public function remover($produtoId)
   {
     $qtd = $this->session->get($produtoId);
-    $this->session->attach($produtoId, --$qtd);
-    header('Location: /carrinho');
-  }
 
-  public function excluir($produtoId)
-  {
-    $this->session->remove($produtoId);
+    if ($qtd == 1) {
+      $this->session->remove($produtoId);
+    } else {
+      $this->session->attach($produtoId, --$qtd);
+    }
+
     header('Location: /carrinho');
   }
 

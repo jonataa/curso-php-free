@@ -25,6 +25,11 @@ class Session
     $this->storage[$this->type][$this->cript($key)] = $value;
   }
 
+  public function remove($key)
+  {
+    unset($this->storage[$this->type][$this->cript($key)]);
+  }
+
   public function contains($key)
   {
     if (isset($this->storage[$this->type]))

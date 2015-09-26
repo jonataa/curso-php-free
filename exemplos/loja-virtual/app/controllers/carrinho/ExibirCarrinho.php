@@ -18,13 +18,24 @@ class ExibirCarrinho
     $produtos = $this->repository->getAll();
     $carrinho = array_filter($produtos, $this->filtrarCarrinho($this->session));
     $carrinho = array_map('self::calcularSubtotal', $carrinho);
-    $this->template->render('carrinho.phtml', ['carrinho' => $carrinho]);
+    $total = array_reduce($carrinho, function($buffer, $produto) {
+      return $buffer + $produto->subtotal;
+    });
+    $this->template->render('carrinho.phtml', [
+      'carrinho' => $carrinho,
+      'total' => $total
+    ]);
+  }
+
+  protected function calcularTotal($carrinho)
+  {
+
   }
 
   protected function calcularSubtotal($produto)
   {
     $produto->qtd = $this->session->get($produto->id);
-    $produto->subtotal = $produto->preco * $produto->qtd;    
+    $produto->subtotal = $produto->preco * $produto->qtd;
     return $produto;
   }
 
