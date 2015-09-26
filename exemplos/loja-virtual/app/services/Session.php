@@ -5,9 +5,12 @@ class Session
 
   protected $storage = [];
 
-  public function __construct($session)
+  public function __construct($tipo)
   {
-    $this->storage = $session;
+    $this->tipo = $tipo;
+
+    session_start();
+    $this->storage = &$_SESSION[$this->tipo];
   }
 
   public function get($key)
