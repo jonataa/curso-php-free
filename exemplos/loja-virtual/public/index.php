@@ -20,8 +20,8 @@ if (URI == '/produtos') {
 } elseif (URI == '/carrinho/adicionar') {
 
   $controller = new Carrinho(
-    new ProdutoRepository(), new Session('carrinho'));
-  $controller->run($_GET['produto']);
+    new ProdutoRepository(), new Session('carrinho'));    
+  $controller->adicionar($_GET['produto']);
 
 } else {
   echo 'Página não encontrada!';

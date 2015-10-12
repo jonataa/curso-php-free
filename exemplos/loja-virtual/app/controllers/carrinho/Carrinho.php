@@ -13,10 +13,11 @@ class Carrinho
     $this->session = $ss;
   }
 
-  public function run($id)
+  public function adicionar($id)
   {
     $produtos = $this->repository->getAll();
-    $this->session->attach($id, $id);
+    $qtd = $this->session->get($id);
+    $this->session->attach($id, ++$qtd);
     $carrinho = array_filter(
       $produtos, $this->filtrarCarrinho($this->session)
     );
