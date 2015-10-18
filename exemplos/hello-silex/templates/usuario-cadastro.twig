@@ -1,0 +1,23 @@
+{% if errors %}
+<ul>
+{% for key, error in errors %}
+  <li>{{ error.message }}</li>
+{% endfor %}
+</ul>
+{% endif %}
+<form action="/usuario/salvar" method="POST">
+  <label for="">Nome: </label>
+  <input type="text" name="nome" value="Foo Bar">
+  <label for="">Email: </label>
+  <input type="email" name="email" value="foo@bar.com">
+  <label for="">Usuário: </label>
+  <input type="text" name="usuario" value="foo">
+  <label for="">Senha: </label>
+  <input type="password" name="senha" value="foo">
+
+  <input type="submit" value="Salvar">
+</form>
+
+<style>
+  form input { display: block; }
+</style>
